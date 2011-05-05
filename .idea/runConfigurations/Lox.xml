@@ -1,0 +1,18 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Lox" type="GWT.ConfigurationType" factoryName="GWT Configuration">
+    <module name="Lox" />
+    <option name="VM_PARAMETERS" value="-ea" />
+    <option name="SHELL_PARAMETERS" value="-logLevel INFO " />
+    <option name="RUN_PAGE" value="/" />
+    <option name="SERVER_ID" value="app-engine:AppEngine Dev" />
+    <RunnerSettings RunnerId="Debug">
+      <option name="DEBUG_PORT" value="52654" />
+      <option name="TRANSPORT" value="0" />
+      <option name="LOCAL" value="true" />
+    </RunnerSettings>
+    <RunnerSettings RunnerId="Run" />
+    <ConfigurationWrapper RunnerId="Debug" />
+    <ConfigurationWrapper RunnerId="Run" />
+    <method />
+  </configuration>
+</component>
