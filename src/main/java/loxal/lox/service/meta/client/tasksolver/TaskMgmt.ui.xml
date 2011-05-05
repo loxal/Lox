@@ -79,8 +79,8 @@
             </g:header>
             <g:VerticalPanel ui:field="control">
                 <c:CellTable ui:field="taskPager" pageSize="10" pageStart="1"/>
-                <c:PageSizePager increment="3"/>
-                <c:SimplePager location="RIGHT"/>
+                <c:PageSizePager increment="3" visible="true" pageSize="10"/>
+                <c:SimplePager location="RIGHT" pageSize="10" visible="true"/>
                 <g:Button ui:field="showAllTasks" visible="false">
                     <ui:msg>Show All Tasks</ui:msg>
                 </g:Button>

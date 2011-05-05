@@ -288,10 +288,10 @@ public class TaskMgmt extends Composite {
     // LISTadapter.getList().add("Item " + i);
 
     private void displayTasks(ArrayList<Task> tasks) {
-        final ListDataProvider<Task> listDataProvider = new ListDataProvider<Task>();
+        ListDataProvider<Task> listDataProvider = new ListDataProvider<Task>();
         listDataProvider.addDataDisplay(taskPager);
-//        final SelectionModel<Task> selectionModel = new SingleSelectionModel<Task>();
-        SelectionModel<Task> selectionModel = new MultiSelectionModel<Task>(); // TODO not yet working (because the API isn't ready?)
+        SelectionModel<Task> selectionModel = new SingleSelectionModel<Task>();
+//        SelectionModel<Task> selectionModel = new MultiSelectionModel<Task>(); // TODO not yet working (because the API isn't ready?)
         taskPager.setSelectionModel(selectionModel);
 
         ArrayList<Task> taskDTOs = new ArrayList<Task>();
@@ -354,13 +354,13 @@ public class TaskMgmt extends Composite {
             public void update(final int index, final Task object,
                                final String value) {
                 tabPanel.selectTab(3);
-                loadTask(object.getId().toString());
-                taskItem.setHTML("Task " + object.getId().toString());
+                loadTask(object.getId());
+                taskItem.setHTML("Task " + object.getId());
                 deleteTask.setCommand(new Command() {
                     @Override
                     public void execute() {
                         final ArrayList<String> taskIds = new ArrayList<String>();
-                        taskIds.add(object.getId().toString());
+                        taskIds.add(object.getId());
                         deleteTasks(taskIds);
                         tabPanel.selectTab(1);
                     }
@@ -381,7 +381,7 @@ public class TaskMgmt extends Composite {
             public void update(final int index, final Task object,
                                final String value) {
                 final List<String> selectedTaskIds = new ArrayList<String>();
-                selectedTaskIds.add(object.getId().toString());
+                selectedTaskIds.add(object.getId());
                 deleteTasks(selectedTaskIds);
                 // deleteTasks(selectedTaskIds); // TODO native Longs caused
                 // compilation errors in Scala implemented server-side class
