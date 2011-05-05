@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright 2010 Alexander Orlov <alexander.orlov@loxal.net>
+  ~ Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -46,7 +46,7 @@
                     </abbr>
                 </g:Anchor>
                 <g:HTML stylePrimaryName="{style.brand}">
-                    &copy; 2010
+                    &copy; 2011
                     <span style="font-family: Verdana;">
                         <span style="color: orange;">L</span>
                         <span style="color: blue;">o</span>

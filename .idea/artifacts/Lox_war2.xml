@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="Lox:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="Lox-0.9.1-RELEASE.war">
-      <element id="artifact" artifact-name="Lox:war exploded" />
-    </root>
-  </artifact>
-</component>

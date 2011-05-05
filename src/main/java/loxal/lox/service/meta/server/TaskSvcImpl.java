@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Alexander Orlov <alexander.orlov@loxal.net>
+ * Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,6 @@ import java.util.Iterator;
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
 public class TaskSvcImpl extends RemoteServiceServlet implements TaskSvc {
-    private static final long serialVersionUID = -7668467017948551535L;
     private final DatastoreService datastoreService = DatastoreServiceFactory.getDatastoreService();
     private final static String entityName = "Task";
 
