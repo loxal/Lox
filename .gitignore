@@ -1,17 +1,8 @@
 .DS_Store
 /\.idea/workspace.xml
-.hg
-.hgignore
 
-/src/main/webapp/WEB-INF/appengine-generated
-
-# binary
-/src/main/webapp/WEB-INF/classes
-/src/main/webapp/WEB-INF/lib
-# my folders
 /src/main/webapp/resource
 
-#*\.class
 /target
 /out
 /doc

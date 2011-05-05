@@ -15,7 +15,7 @@
     <autodetection-disabled>
       <facet-type id="gwt">
         <modules>
-          <module name="Lox" />
+          <module name="app" />
         </modules>
       </facet-type>
       <facet-type id="Scala">
@@ -31,7 +31,7 @@
       </facet-type>
       <facet-type id="web">
         <modules>
-          <module name="Lox" />
+          <module name="app" />
         </modules>
       </facet-type>
     </autodetection-disabled>
@@ -74,8 +74,8 @@
         <default-facet-configuration>
           <configuration>
             <setting name="compilerMaxHeapSize" value="64" />
-            <setting name="gwtScriptOutputStyle" value="OBF" />
-            <setting name="gwtSdkUrl" value="file://$PROJECT_DIR$/lib/gwt" />
+            <setting name="gwtScriptOutputStyle" value="PRETTY" />
+            <setting name="gwtSdkUrl" value="file://$MAVEN_REPOSITORY$/com/google/gwt/gwt-dev/2.2.0/" />
           </configuration>
         </default-facet-configuration>
       </entry>
@@ -88,7 +88,7 @@
     <default-html-doctype>http://www.w3.org/1999/xhtml</default-html-doctype>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="1.6" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/out" />
+    <output url="file://$PROJECT_DIR$/target" />
   </component>
   <component name="ResourceManagerContainer">
     <option name="myResourceBundles">

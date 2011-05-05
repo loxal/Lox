@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Alexander Orlov <alexander.orlov@loxal.net>
+ * Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,8 +36,7 @@ public final class Entry implements EntryPoint {
 
     private final Binder binder = GWT.create(Binder.class);
     private final I18n i18n = GWT.create(I18n.class);
-    private final AuthInfoSvcAsync authInfoSvcAsync = GWT
-            .create(AuthInfoSvc.class);
+    private final AuthInfoSvcAsync authInfoSvcAsync = GWT.create(AuthInfoSvc.class);
 
     @UiField
     TaskMgmt taskMgmt;

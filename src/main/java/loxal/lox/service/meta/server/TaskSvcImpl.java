@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Alexander Orlov <alexander.orlov@loxal.net>
+ * Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,6 @@ import java.util.Iterator;
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
 public class TaskSvcImpl extends RemoteServiceServlet implements TaskSvc {
-    private static final long serialVersionUID = -7668467017948551535L;
     private final DatastoreService datastoreService = DatastoreServiceFactory.getDatastoreService();
     private final static String entityName = "Task";
 
@@ -96,7 +95,7 @@ public class TaskSvcImpl extends RemoteServiceServlet implements TaskSvc {
             task.setDescription(String.valueOf(taskEntity.getProperty("description")));
             task.setPriority(Integer.parseInt(taskEntity.getProperty("priority").toString()));
             task.setUserEmail(String.valueOf(taskEntity.getProperty("userEmail")));
-            task.setId(taskEntity.getKey().getId());
+            task.setId(String.valueOf(taskEntity.getKey().getId()));
 
             tasks.add(task);
         }
@@ -116,7 +115,7 @@ public class TaskSvcImpl extends RemoteServiceServlet implements TaskSvc {
                 task.setCategory(String.valueOf(taskEntity.getProperty("category")));
                 task.setDescription(String.valueOf(taskEntity.getProperty("description")));
                 task.setPriority(Integer.parseInt(taskEntity.getProperty("priority").toString()));
-                task.setId(taskEntity.getKey().getId());
+                task.setId(String.valueOf(taskEntity.getKey().getId()));
             }
 
             return task;
@@ -144,7 +143,7 @@ public class TaskSvcImpl extends RemoteServiceServlet implements TaskSvc {
             task.setDescription(String.valueOf(taskEntity.getProperty("description")));
             task.setPriority(Integer.parseInt(taskEntity.getProperty("priority").toString()));
             task.setUserEmail(String.valueOf(taskEntity.getProperty("userEmail")));
-            task.setId(taskEntity.getKey().getId());
+            task.setId(String.valueOf(taskEntity.getKey().getId()));
 
             tasks.add(task);
         }

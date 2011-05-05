@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Alexander Orlov <alexander.orlov@loxal.net>
+ * Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,8 +28,8 @@ public final class Task implements IsSerializable { // should be actually called
     // TODO user-bounded tasks
     // TODO Edit View for Task
 
-    @Id
-    private Long id;
+    //    @Id
+    private String id;
     private String name;
     private String description;
     private String userEmail;
@@ -60,11 +60,11 @@ public final class Task implements IsSerializable { // should be actually called
         this.category = category;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
