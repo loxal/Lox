@@ -46,36 +46,40 @@
         </license>
     </licenses>
 
+    <ciManagement>
+        <system>Jenkins</system>
+        <url>http://sky.loxal.net:8080</url>
+    </ciManagement>
+
     <issueManagement>
-        <system>Google Code</system>
-        <url>http://code.google.com/p/loxal/issues/list</url>
+        <system>Issues</system>
+        <url>https://github.com/loxal/Lox/issues</url>
     </issueManagement>
 
+    <scm>
+        <connection>scm:git:git://github.com:loxal/Lox.git</connection>
+        <developerConnection>scm:git:git@github.com:loxal/Lox.git</developerConnection>
+        <url>https://loxal@github.com/loxal/Lox.git</url>
+        <tag>RELEASE</tag>
+    </scm>
+
     <groupId>loxal.lox</groupId>
-    <artifactId>Lox</artifactId>
-    <version>1.0.1-RELEASE</version>
+    <artifactId>app</artifactId>
+    <version>1.0.2-RELEASE</version>
     <packaging>war</packaging>
     <name>Lox</name>
     <url>http://dev.loxal.net</url>
     <description>Project to demonstrate GAE and GWT development patterns and paradigms</description>
 
-    <scm>
-        <connection>scm:hg:http://lox.loxal.googlecode.com/hg</connection>
-        <developerConnection>scm:hg:https://lox.loxal.googlecode.com/hg</developerConnection>
-        <url>http://lox.loxal.googlecode.com/hg</url>
-    </scm>
-
     <distributionManagement>
         <repository>
             <id>loxal</id>
-            <name>loxal-releases</name>
-            <!--<url>http://loxal.artifactoryonline.com/loxal/libs-releases-local</url>-->
+            <name>releases</name>
             <url>file://${user.home}/.m2/repository</url>
         </repository>
         <snapshotRepository>
             <id>loxal</id>
-            <name>loxal-snapshots</name>
-            <!--<url>http://loxal.artifactoryonline.com/loxal/libs-snapshots-local</url>-->
+            <name>snapshots</name>
             <url>file://${user.home}/.m2/repository</url>
         </snapshotRepository>
     </distributionManagement>
@@ -83,80 +87,15 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <gae.app.name>lox-loxal</gae.app.name>
-        <spring.version>3.0.5.RELEASE</spring.version>
-        <aspectj.version>1.6.10</aspectj.version>
-        <gae.version>1.4.2</gae.version>
+        <gae.version>1.4.3</gae.version>
         <gae.runtime>1.4.2</gae.runtime>
         <gae.maven>0.8.4</gae.maven>
         <gae.home>
-            ${user.home}/.m2/repository/com/google/appengine/appengine-java-sdk/${gae.version}/appengine-java-sdk-${gae.version}
+            <!--${user.home}/.m2/repository/com/google/appengine/appengine-java-sdk/${gae.version}/appengine-java-sdk-${gae.version}-->
+            ${user.home}/my/sdk/gae.java
         </gae.home>
         <gwt.version>2.2.0</gwt.version>
     </properties>
-
-    <repositories>
-        <!--<repository>-->
-        <!--<id>spring-maven-release</id>-->
-        <!--<name>Spring Maven Release Repository</name>-->
-        <!--<url>http://maven.springframework.org/release</url>-->
-        <!--</repository>-->
-        <!--<repository>-->
-        <!--<id>spring-maven-milestone</id>-->
-        <!--<name>Spring Maven Milestone Repository</name>-->
-        <!--<url>http://maven.springframework.org/milestone</url>-->
-        <!--</repository>-->
-        <!--<repository>-->
-        <!--<id>spring-roo-repository</id>-->
-        <!--<name>Spring Roo Repository</name>-->
-        <!--<url>http://spring-roo-repository.springsource.org/release</url>-->
-        <!--</repository>-->
-        <repository>
-            <id>maven-gae-plugin-repo</id>
-            <url>http://maven-gae-plugin.googlecode.com/svn/repository</url>
-            <name>maven-gae-plugin repository</name>
-        </repository>
-        <!--<repository>-->
-        <!--<id>JBoss Repo</id>-->
-        <!--<url>https://repository.jboss.org/nexus/content/repositories/releases</url>-->
-        <!--<name>JBoss Repo</name>-->
-        <!--</repository>-->
-        <!--<repository>-->
-        <!--<id>gwt-repo</id>-->
-        <!--<url>http://google-web-toolkit.googlecode.com/svn/2.1.0/gwt/maven/</url>-->
-        <!--<name>Google Web Toolkit Repository</name>-->
-        <!--</repository>-->
-        <!--<repository>-->
-        <!--<id>bedatadriven-thirdparty</id>-->
-        <!--<url>http://nexus.bedatadriven.com/content/repositories/thirdparty/</url>-->
-        <!--</repository>-->
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>spring-maven-release</id>
-            <name>Spring Maven Release Repository</name>
-            <url>http://maven.springframework.org/release</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>spring-maven-milestone</id>
-            <name>Spring Maven Milestone Repository</name>
-            <url>http://maven.springframework.org/milestone</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>spring-roo-repository</id>
-            <name>Spring Roo Repository</name>
-            <url>http://spring-roo-repository.springsource.org/release</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>maven-gae-plugin-repo</id>
-            <url>http://maven-gae-plugin.googlecode.com/svn/repository</url>
-            <name>maven-gae-plugin repository</name>
-        </pluginRepository>
-        <pluginRepository>
-            <id>gwt-plugin-repo</id>
-            <url>http://google-web-toolkit.googlecode.com/svn/2.1.0/gwt/maven/</url>
-            <name>Google Web Toolkit Plugin Repository</name>
-        </pluginRepository>
-    </pluginRepositories>
 
     <dependencies>
         <dependency>
@@ -173,25 +112,7 @@
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-core</artifactId>
-            <version>0.20.2-appengine</version>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjrt</artifactId>
-            <version>${aspectj.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aspects</artifactId>
-            <version>${spring.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-            <version>${spring.version}</version>
-            <scope>provided</scope>
+            <version>0.20.2</version>
         </dependency>
         <dependency>
             <groupId>com.google.appengine</groupId>
@@ -199,11 +120,17 @@
             <version>${gae.version}</version>
         </dependency>
         <dependency>
-            <groupId>javax.persistence</groupId>
-            <artifactId>persistence-api</artifactId>
-            <version>1.0</version>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>javax.persistence</artifactId>
+            <version>2.0.3</version>
             <scope>provided</scope>
         </dependency>
+        <!--<dependency>-->
+        <!--<groupId>javax.validation</groupId>-->
+        <!--<artifactId>validation-api</artifactId>-->
+        <!--<version>1.0.0.GA</version>-->
+        <!--<scope>provided</scope>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>com.google.gwt</groupId>
             <artifactId>gwt-servlet</artifactId>
@@ -223,89 +150,9 @@
         <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.1</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.1</version>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>aspectj-maven-plugin</artifactId>
-                <version>1.0</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.aspectj</groupId>
-                        <artifactId>aspectjrt</artifactId>
-                        <version>${aspectj.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.aspectj</groupId>
-                        <artifactId>aspectjtools</artifactId>
-                        <version>${aspectj.version}</version>
-                    </dependency>
-                </dependencies>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>compile</goal>
-                            <goal>test-compile</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <outxml>true</outxml>
-                    <aspectLibraries>
-                        <aspectLibrary>
-                            <groupId>org.springframework</groupId>
-                            <artifactId>spring-aspects</artifactId>
-                        </aspectLibrary>
-                    </aspectLibraries>
-                    <source>1.6</source>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.4.2</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.5</version>
-                <configuration>
-                    <excludes>
-                        <exclude>**/*_Roo_*</exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.2-beta-5</version>
-                <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>2.5</version>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>tomcat-maven-plugin</artifactId>
-                <version>1.0</version>
-            </plugin>
-            <plugin>
                 <groupId>org.mortbay.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>7.1.2.v20100523</version>
+                <version>8.0.0.M2</version>
                 <configuration>
                     <webAppConfig>
                         <contextPath>/${project.name}</contextPath>
@@ -331,7 +178,7 @@
                     <execution>
                         <phase>validate</phase>
                         <goals>
-                            <!--<goal>unpack</goal>-->
+                            <goal>unpack</goal>
                         </goals>
                     </execution>
                 </executions>

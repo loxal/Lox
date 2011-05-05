@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Alexander Orlov <alexander.orlov@loxal.net>
+ * Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,9 +32,7 @@ import java.util.List;
  * @author frew@google.com (Fred Wulff)
  */
 public class InitServlet extends HttpServlet {
-	private static final long serialVersionUID = 6342428666976155895L;
-
-	public void doGet(HttpServletRequest req, HttpServletResponse resp) {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) {
         DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
         List<Entity> entities = new ArrayList<Entity>();
         for (int i = 0; i < 400; i++) {

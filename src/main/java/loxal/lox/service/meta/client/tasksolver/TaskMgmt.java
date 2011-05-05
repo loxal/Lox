@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Alexander Orlov <alexander.orlov@loxal.net>
+ * Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,6 +34,7 @@ import com.google.gwt.user.client.Command;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
 import com.google.gwt.view.client.ListDataProvider;
+import com.google.gwt.view.client.MultiSelectionModel;
 import com.google.gwt.view.client.SelectionModel;
 import com.google.gwt.view.client.SingleSelectionModel;
 import loxal.lox.service.meta.client.blobmgmt.BlobSvc;
@@ -52,8 +53,7 @@ import java.util.List;
  */
 public class TaskMgmt extends Composite {
     private final TaskSvcAsync taskSvcAsync = GWT.create(TaskSvc.class);
-    private final BlobUploadUrlSvcAsync uploadServiceAsync = GWT
-            .create(BlobUploadUrlSvc.class);
+    private final BlobUploadUrlSvcAsync uploadServiceAsync = GWT.create(BlobUploadUrlSvc.class);
     private final BlobSvcAsync blobSvcAsync = GWT.create(BlobSvc.class);
 
     interface Binder extends UiBinder<TabLayoutPanel, TaskMgmt> {
@@ -287,17 +287,15 @@ public class TaskMgmt extends Composite {
     // (pay attention to the GET!):
     // LISTadapter.getList().add("Item " + i);
 
-    private void displayTasks(final ArrayList<Task> tasks) {
+    private void displayTasks(ArrayList<Task> tasks) {
         final ListDataProvider<Task> listDataProvider = new ListDataProvider<Task>();
         listDataProvider.addDataDisplay(taskPager);
-        final SelectionModel<Task> selectionModel = new SingleSelectionModel<Task>();
-        // final SelectionModel<Task> selectionModel = new
-        // MultiSelectionModel<Task>(); // TODO not yet working (because the API
-        // isn't ready?)
+//        final SelectionModel<Task> selectionModel = new SingleSelectionModel<Task>();
+        SelectionModel<Task> selectionModel = new MultiSelectionModel<Task>(); // TODO not yet working (because the API isn't ready?)
         taskPager.setSelectionModel(selectionModel);
 
-        final ArrayList<Task> taskDTOs = new ArrayList<Task>();
-        for (final Task task : tasks) {
+        ArrayList<Task> taskDTOs = new ArrayList<Task>();
+        for (Task task : tasks) {
             taskDTOs.add(task);
         }
         listDataProvider.setList(taskDTOs);
@@ -310,39 +308,39 @@ public class TaskMgmt extends Composite {
 
     private void initTableColumnsOfTasks() {
         taskPager.addColumn(new TextColumn<Task>() {
-            @Override
-            public String getValue(final Task object) {
-                return object.getId().toString();
-            }
-        }, "ID");
+                    @Override
+                    public String getValue(final Task object) {
+                        return object.getId().toString();
+                    }
+                }, "ID");
 
         taskPager.addColumn(new TextColumn<Task>() {
-            @Override
-            public String getValue(final Task object) {
-                return object.getName();
-            }
-        }, "Name");
+                    @Override
+                    public String getValue(final Task object) {
+                        return object.getName();
+                    }
+                }, "Name");
 
         taskPager.addColumn(new TextColumn<Task>() {
-            @Override
-            public String getValue(final Task object) {
-                return object.getCategory();
-            }
-        }, "Category");
+                    @Override
+                    public String getValue(final Task object) {
+                        return object.getCategory();
+                    }
+                }, "Category");
 
         taskPager.addColumn(new TextColumn<Task>() {
-            @Override
-            public String getValue(final Task object) {
-                return String.valueOf(object.getPriority());
-            }
-        }, "Priority");
+                    @Override
+                    public String getValue(final Task object) {
+                        return String.valueOf(object.getPriority());
+                    }
+                }, "Priority");
 
         taskPager.addColumn(new TextColumn<Task>() {
-            @Override
-            public String getValue(final Task object) {
-                return object.getDescription();
-            }
-        }, "Description");
+                    @Override
+                    public String getValue(final Task object) {
+                        return object.getDescription();
+                    }
+                }, "Description");
 
         final Column<Task, String> edit = new Column<Task, String>(
                 new ButtonCell()) {
@@ -411,7 +409,7 @@ public class TaskMgmt extends Composite {
         task.setCategory(categoryUpdate.getValue());
         if (priorityUpdate.getValue().matches("\\d+"))
             task.setPriority(Integer.parseInt(priorityUpdate.getValue()));
-        task.setId(Long.parseLong(taskId.getText()));
+        task.setId(taskId.getText());
 
         return task;
     }
@@ -499,38 +497,38 @@ public class TaskMgmt extends Composite {
 
     private void initTableColumnsOfBlobs() {
         blobPager.addColumn(new TextColumn<Blob>() {
-            @Override
-            public String getValue(final Blob object) {
-                return object.getContentType();
-            }
-        }, "Content Type");
+                    @Override
+                    public String getValue(final Blob object) {
+                        return object.getContentType();
+                    }
+                }, "Content Type");
 
         blobPager.addColumn(new TextColumn<Blob>() {
-            @Override
-            public String getValue(final Blob object) {
-                Hyperlink hyperlink = new Hyperlink();
-                hyperlink.setText("my text");
-                Anchor anchor = new Anchor();
-                anchor.setText(object.getBlobKey());
-                anchor.setHref("/meta/serveBlob?blobKey=" + object.getBlobKey());
-                return "<a href='meta/serveBlob?blobKey=" + object.getBlobKey()
-                        + "'>" + object.getFileName() + "</a>";
-            }
-        }, "File Name");
+                    @Override
+                    public String getValue(final Blob object) {
+                        Hyperlink hyperlink = new Hyperlink();
+                        hyperlink.setText("my text");
+                        Anchor anchor = new Anchor();
+                        anchor.setText(object.getBlobKey());
+                        anchor.setHref("/meta/serveBlob?blobKey=" + object.getBlobKey());
+                        return "<a href='meta/serveBlob?blobKey=" + object.getBlobKey()
+                                + "'>" + object.getFileName() + "</a>";
+                    }
+                }, "File Name");
 
         blobPager.addColumn(new TextColumn<Blob>() {
-            @Override
-            public String getValue(final Blob object) {
-                return object.getCreation().toString();
-            }
-        }, "Date");
+                    @Override
+                    public String getValue(final Blob object) {
+                        return object.getCreation().toString();
+                    }
+                }, "Date");
 
         blobPager.addColumn(new TextColumn<Blob>() {
-            @Override
-            public String getValue(final Blob object) {
-                return String.valueOf(object.getSize());
-            }
-        }, "Size");
+                    @Override
+                    public String getValue(final Blob object) {
+                        return String.valueOf(object.getSize());
+                    }
+                }, "Size");
 
         final Column<Blob, String> removeButton = new Column<Blob, String>(
                 new ButtonCell()) {

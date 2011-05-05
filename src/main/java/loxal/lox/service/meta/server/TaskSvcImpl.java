@@ -95,7 +95,7 @@ public class TaskSvcImpl extends RemoteServiceServlet implements TaskSvc {
             task.setDescription(String.valueOf(taskEntity.getProperty("description")));
             task.setPriority(Integer.parseInt(taskEntity.getProperty("priority").toString()));
             task.setUserEmail(String.valueOf(taskEntity.getProperty("userEmail")));
-            task.setId(taskEntity.getKey().getId());
+            task.setId(String.valueOf(taskEntity.getKey().getId()));
 
             tasks.add(task);
         }
@@ -115,7 +115,7 @@ public class TaskSvcImpl extends RemoteServiceServlet implements TaskSvc {
                 task.setCategory(String.valueOf(taskEntity.getProperty("category")));
                 task.setDescription(String.valueOf(taskEntity.getProperty("description")));
                 task.setPriority(Integer.parseInt(taskEntity.getProperty("priority").toString()));
-                task.setId(taskEntity.getKey().getId());
+                task.setId(String.valueOf(taskEntity.getKey().getId()));
             }
 
             return task;
@@ -143,7 +143,7 @@ public class TaskSvcImpl extends RemoteServiceServlet implements TaskSvc {
             task.setDescription(String.valueOf(taskEntity.getProperty("description")));
             task.setPriority(Integer.parseInt(taskEntity.getProperty("priority").toString()));
             task.setUserEmail(String.valueOf(taskEntity.getProperty("userEmail")));
-            task.setId(taskEntity.getKey().getId());
+            task.setId(String.valueOf(taskEntity.getKey().getId()));
 
             tasks.add(task);
         }
