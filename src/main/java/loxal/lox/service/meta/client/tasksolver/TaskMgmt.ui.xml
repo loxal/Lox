@@ -118,12 +118,5 @@
                 </g:Button>
             </g:VerticalPanel>
         </g:tab>
-
-        <!--<g:tab>-->
-        <!--<g:header>-->
-        <!--<ui:msg>Search Box</ui:msg>-->
-        <!--</g:header>-->
-        <!--&lt;!&ndash;<g:SuggestBox ui:field="search"/>&ndash;&gt;-->
-        <!--</g:tab>-->
     </g:TabLayoutPanel>
 </ui:UiBinder>

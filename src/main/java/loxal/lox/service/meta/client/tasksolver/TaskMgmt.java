@@ -153,17 +153,15 @@ public class TaskMgmt extends Composite {
             public void onSuccess(ArrayList<Task> tasks) {
                 displayTasks(tasks);
 
-
                 { // SuggestBox / Oracle
                     MultiWordSuggestOracle oracle = new MultiWordSuggestOracle();
                     for (Task task : tasks) {
                         oracle.add(task.getName());
                     }
 
-                    tabPanel.remove(4);
+                    tabPanel.remove(3);
                     TextBox searchBox = new TextBox();
-                    final SuggestBox search = new SuggestBox(oracle, searchBox);
-//                    search = new SuggestBox(oracle, searchBox);
+                    final SuggestBox search = new SuggestBox(oracle, searchBox); // UiBinder variant didn't work; also using the PROVIDED attribute
 
                     searchBox.addFocusHandler(new FocusHandler() {
                         @Override
@@ -208,9 +206,8 @@ public class TaskMgmt extends Composite {
                         }
                     });
 
-                    tabPanel.add(new HTML("<br/>"), search);
+                    tabPanel.add(new HTML(), search);
                 }
-
             }
         });
     }
