@@ -77,15 +77,15 @@ public class TaskSvcImpl extends RemoteServiceServlet implements TaskSvc {
 
     @Override
     public ArrayList<Task> searchTasksWithName(final String taskName) {
-        final ArrayList<Task> tasks = new ArrayList<Task>();
+        ArrayList<Task> tasks = new ArrayList<Task>();
 
-        final Query taskQuery = new Query(entityName);
-        final String userEmail =
+        Query taskQuery = new Query(entityName);
+        String userEmail =
                 UserServiceFactory.getUserService().getCurrentUser() == null ? null : UserServiceFactory.getUserService().getCurrentUser().getEmail();
 
         taskQuery.addFilter("userEmail", Query.FilterOperator.EQUAL, userEmail);
         taskQuery.addFilter("name", Query.FilterOperator.EQUAL, taskName);
-        final Iterator<Entity> taskQueryResult = datastoreService.prepare(taskQuery).asIterator();
+        Iterator<Entity> taskQueryResult = datastoreService.prepare(taskQuery).asIterator();
         while (taskQueryResult.hasNext()) {
             final Entity taskEntity = taskQueryResult.next();
             final Task task = new Task();
@@ -151,9 +151,4 @@ public class TaskSvcImpl extends RemoteServiceServlet implements TaskSvc {
         return tasks;
     }
 
-    public void checkLoggedIn() throws NotLoggedInException {
-        if (UserServiceFactory.getUserService().getCurrentUser() == null) {
-            throw new NotLoggedInException();
-        }
-    }
 }

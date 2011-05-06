@@ -48,65 +48,13 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>LinguisticsSvcImpl</servlet-name>
-        <servlet-class>loxal.lox.service.linguistics.server.LinguisticsSvcImpl</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>LinguisticsSvcImpl</servlet-name>
-        <url-pattern>/linguistics/Linguistics</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>MailSvcImpl</servlet-name>
         <servlet-class>loxal.lox.service.contact.server.MailSvcImpl</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>MailSvcImpl</servlet-name>
         <url-pattern>/contact/Mail</url-pattern>
     </servlet-mapping>
-
-    <!--MapReduce -->
-    <servlet>
-        <servlet-name>MapReduceServlet</servlet-name>
-        <servlet-class>com.google.appengine.tools.mapreduce.MapReduceServlet
-        </servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>TestServlet</servlet-name>
-        <servlet-class>loxal.lox.service.linguistics.TestServlet
-        </servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>InitServlet</servlet-name>
-        <servlet-class>loxal.lox.service.linguistics.InitServlet
-        </servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>MapReduceServlet</servlet-name>
-        <url-pattern>/mapreduce/*</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>TestServlet</servlet-name>
-        <url-pattern>/mapreduce/test/*</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>InitServlet</servlet-name>
-        <url-pattern>/mapreduce/init/*</url-pattern>
-    </servlet-mapping>
-    <!--/MapReduce -->
-
-    <!--JUnit-->
-    <!--<servlet>-->
-    <!--<servlet-name>jUnitHostImpl</servlet-name>-->
-    <!--<servlet-class>com.google.gwt.junit.server.JUnitHostImpl</servlet-class>-->
-    <!--</servlet>-->
-    <!--<servlet-mapping>-->
-    <!--<servlet-name>jUnitHostImpl</servlet-name>-->
-    <!--<url-pattern>/linguistics/junithost/*</url-pattern>-->
-    <!--</servlet-mapping>-->
-    <!--/JUnit-->
 
     <!--Appstats -->
     <!--<filter>-->

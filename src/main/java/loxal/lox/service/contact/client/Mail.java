@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Alexander Orlov <alexander.orlov@loxal.net>
+ * Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,7 @@ import com.google.gwt.user.client.ui.*;
 /**
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
-public final class Mail implements EntryPoint {
+public class Mail implements EntryPoint {
     @UiField
     TextBox sender;
     @UiField
@@ -41,6 +41,10 @@ public final class Mail implements EntryPoint {
     Button sendNewMessage;
     @UiField
     DecoratedPopupPanel actionResult;
+
+    @Override
+    public void onModuleLoad() {
+    }
 
     interface MailUiBinder extends UiBinder<LayoutPanel, Mail> {
     }
@@ -56,11 +60,6 @@ public final class Mail implements EntryPoint {
         subject.setFocus(true);
 
         RootLayoutPanel.get().add(app);
-    }
-
-    @Override
-    public void onModuleLoad() {
-
     }
 
     private void displayActionResult(final String msg, final boolean success) {

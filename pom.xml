@@ -22,7 +22,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>loxal.lox</groupId>
     <artifactId>app</artifactId>
-    <version>1.0.3-RELEASE</version>
+    <version>1.1.3-RELEASE</version>
     <packaging>war</packaging>
     <name>Lox</name>
     <inceptionYear>2010</inceptionYear>
@@ -98,22 +98,6 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.google.appengine</groupId>
-            <artifactId>appengine-mapper</artifactId>
-            <version>r97</version>
-        </dependency>
-        <dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcpg-jdk16</artifactId>
-            <version>1.45</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-core</artifactId>
-            <version>0.20.2</version>
-        </dependency>
         <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-1.0-sdk</artifactId>
