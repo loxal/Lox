@@ -89,17 +89,6 @@
 
         <g:tab>
             <g:header>
-                <ui:msg>Show Files</ui:msg>
-            </g:header>
-            <g:VerticalPanel>
-                <c:CellTable ui:field="blobPager" pageSize="10" pageStart="1"/>
-                <c:PageSizePager increment="3"/>
-                <c:SimplePager location="RIGHT" page="1"/>
-            </g:VerticalPanel>
-        </g:tab>
-
-        <g:tab>
-            <g:header>
                 <ui:msg>Process Task</ui:msg>
             </g:header>
             <g:VerticalPanel ui:field="processTaskPanel">

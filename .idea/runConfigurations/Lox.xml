@@ -1,9 +1,11 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Lox" type="GWT.ConfigurationType" factoryName="GWT Configuration">
-    <module name="Lox" />
+    <module name="app" />
     <option name="VM_PARAMETERS" value="-ea" />
     <option name="SHELL_PARAMETERS" value="-logLevel INFO " />
     <option name="RUN_PAGE" value="/" />
+    <option name="SERVER_ID" value="app-engine:AppEngine Dev" />
+    <option name="BROWSER" value="Safari" />
     <option name="UPDATE_RESOURCES_ON_FRAME_DEACTIVATION" value="true" />
     <RunnerSettings RunnerId="Debug">
       <option name="DEBUG_PORT" value="52654" />

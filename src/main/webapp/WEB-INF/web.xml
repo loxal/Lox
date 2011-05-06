@@ -48,37 +48,6 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>BlobServeSvcImpl</servlet-name>
-        <servlet-class>loxal.lox.service.meta.server.BlobServeSvcImpl
-        </servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>BlobServeSvcImpl</servlet-name>
-        <url-pattern>/meta/serveBlob</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>BlobUploadUrlSvc</servlet-name>
-        <servlet-class>loxal.lox.service.meta.server.BlobUploadUrlSvcImpl</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>BlobUploadUrlSvc</servlet-name>
-        <url-pattern>/meta/BlobUploadUrl</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>BlobUploadSvc</servlet-name>
-        <servlet-class>loxal.lox.service.linguistics.server.BlobUploadSvcImpl</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>BlobUploadSvc</servlet-name>
-        <url-pattern>/linguistics/blob</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>LinguisticsSvcImpl</servlet-name>
         <servlet-class>loxal.lox.service.linguistics.server.LinguisticsSvcImpl</servlet-class>
     </servlet>
@@ -86,17 +55,6 @@
     <servlet-mapping>
         <servlet-name>LinguisticsSvcImpl</servlet-name>
         <url-pattern>/linguistics/Linguistics</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>BlobSvcImpl</servlet-name>
-        <servlet-class>loxal.lox.service.meta.server.BlobSvcImpl
-        </servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>BlobSvcImpl</servlet-name>
-        <url-pattern>/meta/Blob</url-pattern>
     </servlet-mapping>
 
     <servlet>

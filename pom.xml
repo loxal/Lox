@@ -20,6 +20,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <groupId>loxal.lox</groupId>
+    <artifactId>app</artifactId>
+    <version>1.0.3-RELEASE</version>
+    <packaging>war</packaging>
+    <name>Lox</name>
+    <inceptionYear>2010</inceptionYear>
+    <url>http://dev.loxal.net</url>
+    <description>Project to demonstrate GAE and GWT development patterns and paradigms</description>
 
     <organization>
         <name>Loxal</name>
@@ -62,14 +70,6 @@
         <url>https://loxal@github.com/loxal/Lox.git</url>
         <tag>RELEASE</tag>
     </scm>
-
-    <groupId>loxal.lox</groupId>
-    <artifactId>app</artifactId>
-    <version>1.0.2-RELEASE</version>
-    <packaging>war</packaging>
-    <name>Lox</name>
-    <url>http://dev.loxal.net</url>
-    <description>Project to demonstrate GAE and GWT development patterns and paradigms</description>
 
     <distributionManagement>
         <repository>

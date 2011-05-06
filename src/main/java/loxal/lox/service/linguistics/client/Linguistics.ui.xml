@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright 2010 Alexander Orlov <alexander.orlov@loxal.net>
+  ~ Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -44,7 +44,6 @@
                         <g:RichTextArea ui:field="text1"/>
                         <g:TextArea ui:field="text" visibleLines="22" characterWidth="80"
                                     text="This is yet another test..."/>
-                        <g:Frame ui:field="upload" url="/linguistics/upload.jsp" stylePrimaryName="{style.upload}"/>
                         <g:Label ui:field="textCharNumber"/>
                         <g:Label ui:field="textContent"/>
                         <g:Button text="Estimate Price" ui:field="estimatePrice"/>
