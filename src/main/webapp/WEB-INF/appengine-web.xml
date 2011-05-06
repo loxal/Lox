@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright 2010 Alexander Orlov <alexander.orlov@loxal.net>
+  ~ Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -51,7 +51,7 @@
 
     <system-properties>
         <property name="admin.name" value="Alexander Orlov"/>
-        <property name="admin.mail" value="loxal.net@googlemail.com"/>
+        <property name="admin.mail" value="alexander.orlov@loxal.net"/>
         <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
         <property name="appengine.orm.disable.duplicate.emf.exception" value="false"/>
     </system-properties>

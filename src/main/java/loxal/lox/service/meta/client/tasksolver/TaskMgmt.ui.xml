@@ -23,12 +23,6 @@
              ui:generateKeys="com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator"
              ui:generateLocales="default">
 
-    <ui:style>
-        .invisibleDueToBugInGWT {
-            display: none;
-        }
-    </ui:style>
-
     <g:TabLayoutPanel barHeight="32" ui:field="tabPanel">
         <g:tab>
             <g:header>
@@ -45,23 +39,9 @@
                 </g:Label>
                 <g:TextBox ui:field="category"/>
                 <g:Label>
-                    <ui:msg>Priority (numeric value: 0-100):</ui:msg>
+                    <ui:msg>Priority (Numeric Value: 0-100):</ui:msg>
                 </g:Label>
                 <g:TextBox ui:field="priority"/>
-                <g:HTMLPanel stylePrimaryName="{style.invisibleDueToBugInGWT}">
-                    <g:Label>
-                        <ui:msg>Attachment</ui:msg>
-                    </g:Label>
-                    <g:FormPanel ui:field="uploadForm" method="post" encoding="multipart/form-data">
-                        <g:FileUpload ui:field="fileUpload" name="fileUpload"/>
-                    </g:FormPanel>
-                    <g:HTML>
-                        <small>[User-bound persistence is not possible yet<a
-                                href="http://code.google.com/p/google-web-toolkit/issues/detail?id=5242">due to a GWT
-                            bug</a>. All uploaded files are public.]
-                        </small>
-                    </g:HTML>
-                </g:HTMLPanel>
                 <g:Label>
                     <ui:msg>Description</ui:msg>
                 </g:Label>
@@ -78,9 +58,9 @@
                 <ui:msg>Show Tasks</ui:msg>
             </g:header>
             <g:VerticalPanel ui:field="control">
-                <c:CellTable ui:field="taskPager" pageSize="10" pageStart="1"/>
-                <c:PageSizePager increment="3" visible="true" pageSize="10"/>
-                <c:SimplePager location="RIGHT" pageSize="10" visible="true"/>
+                <c:CellTable ui:field="taskPager" pageSize="9"/>
+                <c:PageSizePager ui:field="taskPageSizePager" increment="3" pageSize="9"/>
+                <c:SimplePager ui:field="taskSimplePager" location="RIGHT" pageSize="9"/>
                 <g:Button ui:field="showAllTasks" visible="false">
                     <ui:msg>Show All Tasks</ui:msg>
                 </g:Button>
@@ -125,15 +105,9 @@
                 </g:Label>
                 <g:TextBox ui:field="categoryUpdate"/>
                 <g:Label>
-                    <ui:msg>Priority (numeric value: 0-100):</ui:msg>
+                    <ui:msg>Priority (Numeric Value: 0-100):</ui:msg>
                 </g:Label>
                 <g:TextBox ui:field="priorityUpdate"/>
-                <g:Label>
-                    <ui:msg>Attachment</ui:msg>
-                </g:Label>
-                <g:FormPanel ui:field="uploadFormUpdate" method="post" encoding="multipart/form-data">
-                    <g:FileUpload ui:field="fileUploadUpdate" name="fileUpload"/>
-                </g:FormPanel>
                 <g:Label>
                     <ui:msg>Description</ui:msg>
                 </g:Label>
@@ -144,5 +118,12 @@
                 </g:Button>
             </g:VerticalPanel>
         </g:tab>
+
+        <!--<g:tab>-->
+        <!--<g:header>-->
+        <!--<ui:msg>Search Box</ui:msg>-->
+        <!--</g:header>-->
+        <!--&lt;!&ndash;<g:SuggestBox ui:field="search"/>&ndash;&gt;-->
+        <!--</g:tab>-->
     </g:TabLayoutPanel>
 </ui:UiBinder>

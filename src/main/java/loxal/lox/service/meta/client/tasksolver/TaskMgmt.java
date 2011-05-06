@@ -27,15 +27,13 @@ import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
-import com.google.gwt.user.cellview.client.CellTable;
-import com.google.gwt.user.cellview.client.Column;
-import com.google.gwt.user.cellview.client.TextColumn;
+import com.google.gwt.user.cellview.client.*;
 import com.google.gwt.user.client.Command;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
 import com.google.gwt.view.client.ListDataProvider;
+import com.google.gwt.view.client.MultiSelectionModel;
 import com.google.gwt.view.client.SelectionModel;
-import com.google.gwt.view.client.SingleSelectionModel;
 import loxal.lox.service.meta.client.dto.Task;
 import loxal.lox.service.meta.client.meta.layout.Header;
 
@@ -48,7 +46,7 @@ import java.util.List;
 public class TaskMgmt extends Composite {
     private TaskSvcAsync taskSvcAsync = GWT.create(TaskSvc.class);
 
-    interface Binder extends UiBinder<TabLayoutPanel, TaskMgmt> {
+    interface Binder extends UiBinder<Widget, TaskMgmt> {
     }
 
     @UiField
@@ -63,10 +61,6 @@ public class TaskMgmt extends Composite {
     TextBox priority;
     @UiField
     TabLayoutPanel tabPanel;
-    @UiField
-    FormPanel uploadForm;
-    @UiField
-    FileUpload fileUpload;
     @UiField
     CellTable<Task> taskPager;
     @UiField
@@ -88,10 +82,6 @@ public class TaskMgmt extends Composite {
     @UiField
     TextBox priorityUpdate;
     @UiField
-    FormPanel uploadFormUpdate;
-    @UiField
-    FileUpload fileUploadUpdate;
-    @UiField
     TextArea descriptionUpdate;
     @UiField
     Button updateTask;
@@ -101,6 +91,10 @@ public class TaskMgmt extends Composite {
     Button showAllTasks;
     @UiField
     MenuItem placeholder;
+    @UiField
+    PageSizePager taskPageSizePager;
+    @UiField
+    SimplePager taskSimplePager;
 
     public TaskMgmt() {
         Binder binder = GWT.create(Binder.class);
@@ -159,6 +153,7 @@ public class TaskMgmt extends Composite {
             public void onSuccess(ArrayList<Task> tasks) {
                 displayTasks(tasks);
 
+
                 { // SuggestBox / Oracle
                     MultiWordSuggestOracle oracle = new MultiWordSuggestOracle();
                     for (Task task : tasks) {
@@ -167,7 +162,8 @@ public class TaskMgmt extends Composite {
 
                     tabPanel.remove(4);
                     TextBox searchBox = new TextBox();
-                    SuggestBox search = new SuggestBox(oracle, searchBox);
+                    final SuggestBox search = new SuggestBox(oracle, searchBox);
+//                    search = new SuggestBox(oracle, searchBox);
 
                     searchBox.addFocusHandler(new FocusHandler() {
                         @Override
@@ -212,7 +208,7 @@ public class TaskMgmt extends Composite {
                         }
                     });
 
-                    tabPanel.add(new HTML("<hr>"), search);
+                    tabPanel.add(new HTML("<br/>"), search);
                 }
 
             }
@@ -220,15 +216,13 @@ public class TaskMgmt extends Composite {
     }
 
     private boolean initConstruction; // TODO re-engineer this HACK: make this var
-    // unnecessary >> MAYBE this is a workaround
-    // (pay attention to the GET!):
-    // LISTadapter.getList().add("Item " + i);
 
     private void displayTasks(ArrayList<Task> tasks) {
         ListDataProvider<Task> listDataProvider = new ListDataProvider<Task>();
         listDataProvider.addDataDisplay(taskPager);
-        SelectionModel<Task> selectionModel = new SingleSelectionModel<Task>();
-//        SelectionModel<Task> selectionModel = new MultiSelectionModel<Task>(); // TODO not yet working (because the API isn't ready?)
+        taskPageSizePager.setDisplay(taskPager);
+        taskSimplePager.setDisplay(taskPager);
+        SelectionModel<Task> selectionModel = new MultiSelectionModel<Task>(); // TODO not yet working (because the API isn't ready?)
         taskPager.setSelectionModel(selectionModel);
 
         ArrayList<Task> taskDTOs = new ArrayList<Task>();
@@ -288,7 +282,7 @@ public class TaskMgmt extends Composite {
         };
         edit.setFieldUpdater(new FieldUpdater<Task, String>() {
             @Override
-            public void update(int index, Task object,
+            public void update(int index, final Task object,
                                String value) {
                 tabPanel.selectTab(3);
                 loadTask(object.getId());
@@ -412,7 +406,6 @@ public class TaskMgmt extends Composite {
 
     @UiHandler("createTask")
     void addTask(ClickEvent event) {
-        uploadForm.submit();
         putTask(declareTask());
         name.setFocus(true);
         tabPanel.selectTab(1);
