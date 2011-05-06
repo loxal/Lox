@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Alexander Orlov <alexander.orlov@loxal.net>
+ * Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,11 +33,11 @@ import java.util.Properties;
 /**
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
-public final class MailSvcImpl extends RemoteServiceServlet implements MailSvc {
-    private static final long serialVersionUID = 6311091300431587421L;
+public class MailSvcImpl extends RemoteServiceServlet implements MailSvc {
+    private static long serialVersionUID = 6311091300431587421L;
 
-    public void sendMail(final MailMsg mailMsg) {
-        final MimeMessage message = new MimeMessage(
+    public void sendMail(MailMsg mailMsg) {
+        MimeMessage message = new MimeMessage(
                 Session.getDefaultInstance(
                         new Properties()));
         try {

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Alexander Orlov <alexander.orlov@loxal.net>
+ * Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,12 +21,12 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
 
-public final class Footer extends Composite {
+public class Footer extends Composite {
     interface Binder extends UiBinder<DockLayoutPanel, Footer> {
     }
 
     private Footer() {
-        final Binder binder = GWT.create(Binder.class);
+        Binder binder = GWT.create(Binder.class);
         initWidget(binder.createAndBindUi(this));
     }
 

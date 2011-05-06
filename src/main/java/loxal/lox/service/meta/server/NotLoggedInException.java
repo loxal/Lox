@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Alexander Orlov <alexander.orlov@loxal.net>
+ * Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,9 +22,9 @@ import com.google.gwt.user.client.rpc.IsSerializable;
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
 class NotLoggedInException extends Exception implements IsSerializable {
-	private static final long serialVersionUID = 2006768742214036684L;
+    private static long serialVersionUID = 2006768742214036684L;
 
-	public NotLoggedInException() {
+    public NotLoggedInException() {
         super("Authentication Required: You have to sign-in first.");
     }
 }

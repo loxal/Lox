@@ -128,20 +128,20 @@ public class TaskMgmt extends Composite {
 
     }
 
-    private void loadTask(final String taskId) {
+    private void loadTask(String taskId) {
         taskSvcAsync.getTask(taskId, new AsyncCallback<Task>() {
             @Override
-            public void onFailure(final Throwable caught) {
+            public void onFailure(Throwable caught) {
             }
 
             @Override
-            public void onSuccess(final Task task) {
+            public void onSuccess(Task task) {
                 displayTask(task);
             }
         });
     }
 
-    private void displayTask(final Task task) {
+    private void displayTask(Task task) {
         nameUpdate.setText(task.getName());
         categoryUpdate.setText(task.getCategory());
         priorityUpdate.setText(String.valueOf(task.getPriority()));
@@ -152,22 +152,22 @@ public class TaskMgmt extends Composite {
     private void getTasks() {
         taskSvcAsync.getTasks(new AsyncCallback<ArrayList<Task>>() {
             @Override
-            public void onFailure(final Throwable caught) {
+            public void onFailure(Throwable caught) {
             }
 
             @Override
-            public void onSuccess(final ArrayList<Task> tasks) {
+            public void onSuccess(ArrayList<Task> tasks) {
                 displayTasks(tasks);
 
                 { // SuggestBox / Oracle
-                    final MultiWordSuggestOracle oracle = new MultiWordSuggestOracle();
-                    for (final Task task : tasks) {
+                    MultiWordSuggestOracle oracle = new MultiWordSuggestOracle();
+                    for (Task task : tasks) {
                         oracle.add(task.getName());
                     }
 
                     tabPanel.remove(4);
-                    final TextBox searchBox = new TextBox();
-                    final SuggestBox search = new SuggestBox(oracle, searchBox);
+                    TextBox searchBox = new TextBox();
+                    SuggestBox search = new SuggestBox(oracle, searchBox);
 
                     searchBox.addFocusHandler(new FocusHandler() {
                         @Override
@@ -192,18 +192,18 @@ public class TaskMgmt extends Composite {
                     search.addValueChangeHandler(new ValueChangeHandler<String>() {
                         @Override
                         public void onValueChange(
-                                final ValueChangeEvent<String> stringValueChangeEvent) {
+                                ValueChangeEvent<String> stringValueChangeEvent) {
                             taskSvcAsync.searchTasksWithName(
                                     stringValueChangeEvent.getValue(),
                                     new AsyncCallback<ArrayList<Task>>() {
                                         @Override
                                         public void onFailure(
-                                                final Throwable caught) {
+                                                Throwable caught) {
                                         }
 
                                         @Override
                                         public void onSuccess(
-                                                final ArrayList<Task> tasks) {
+                                                ArrayList<Task> tasks) {
                                             displayTasks(tasks);
                                             tabPanel.selectTab(1);
                                             showAllTasks.setVisible(true);
@@ -246,40 +246,40 @@ public class TaskMgmt extends Composite {
     private void initTableColumnsOfTasks() {
         taskPager.addColumn(new TextColumn<Task>() {
                     @Override
-                    public String getValue(final Task object) {
+                    public String getValue(Task object) {
                         return object.getId();
                     }
                 }, "ID");
 
         taskPager.addColumn(new TextColumn<Task>() {
                     @Override
-                    public String getValue(final Task object) {
+                    public String getValue(Task object) {
                         return object.getName();
                     }
                 }, "Name");
 
         taskPager.addColumn(new TextColumn<Task>() {
                     @Override
-                    public String getValue(final Task object) {
+                    public String getValue(Task object) {
                         return object.getCategory();
                     }
                 }, "Category");
 
         taskPager.addColumn(new TextColumn<Task>() {
                     @Override
-                    public String getValue(final Task object) {
+                    public String getValue(Task object) {
                         return String.valueOf(object.getPriority());
                     }
                 }, "Priority");
 
         taskPager.addColumn(new TextColumn<Task>() {
                     @Override
-                    public String getValue(final Task object) {
+                    public String getValue(Task object) {
                         return object.getDescription();
                     }
                 }, "Description");
 
-        final Column<Task, String> edit = new Column<Task, String>(
+        Column<Task, String> edit = new Column<Task, String>(
                 new ButtonCell()) {
             @Override
             public String getValue(Task object) {
@@ -288,15 +288,15 @@ public class TaskMgmt extends Composite {
         };
         edit.setFieldUpdater(new FieldUpdater<Task, String>() {
             @Override
-            public void update(final int index, final Task object,
-                               final String value) {
+            public void update(int index, Task object,
+                               String value) {
                 tabPanel.selectTab(3);
                 loadTask(object.getId());
                 taskItem.setHTML("Task " + object.getId());
                 deleteTask.setCommand(new Command() {
                     @Override
                     public void execute() {
-                        final ArrayList<String> taskIds = new ArrayList<String>();
+                        ArrayList<String> taskIds = new ArrayList<String>();
                         taskIds.add(object.getId());
                         deleteTasks(taskIds);
                         tabPanel.selectTab(1);
@@ -315,9 +315,9 @@ public class TaskMgmt extends Composite {
         };
         removeButton.setFieldUpdater(new FieldUpdater<Task, String>() {
             @Override
-            public void update(final int index, final Task object,
-                               final String value) {
-                final List<String> selectedTaskIds = new ArrayList<String>();
+            public void update(int index, Task object,
+                               String value) {
+                List<String> selectedTaskIds = new ArrayList<String>();
                 selectedTaskIds.add(object.getId());
                 deleteTasks(selectedTaskIds);
                 // deleteTasks(selectedTaskIds); // TODO native Longs caused
@@ -329,7 +329,7 @@ public class TaskMgmt extends Composite {
     }
 
     private Task declareTask() {
-        final Task task = new Task();
+        Task task = new Task();
         task.setName(name.getValue());
         task.setDescription(description.getValue());
         task.setCategory(category.getValue());
@@ -340,7 +340,7 @@ public class TaskMgmt extends Composite {
     }
 
     private Task declareTaskUpdate() {
-        final Task task = new Task();
+        Task task = new Task();
         task.setName(nameUpdate.getValue());
         task.setDescription(descriptionUpdate.getValue());
         task.setCategory(categoryUpdate.getValue());
@@ -351,24 +351,24 @@ public class TaskMgmt extends Composite {
         return task;
     }
 
-    private void putTask(final Task task) {
+    private void putTask(Task task) {
         taskSvcAsync.putTask(task, new AsyncCallback<Void>() {
             @Override
-            public void onFailure(final Throwable caught) {
+            public void onFailure(Throwable caught) {
                 Header.displayActionResult(
                         "Error Creating Task: " + caught.getMessage(), false);
             }
 
             @Override
-            public void onSuccess(final Void ignore) {
+            public void onSuccess(Void ignore) {
                 Header.displayActionResult("Task Created Successfully", true);
                 getTasks();
             }
         });
     }
 
-    private void deleteTasks(final List<String> selectedTaskIds) {
-        final ArrayList<String> tasks = new ArrayList<String>(); // TODO
+    private void deleteTasks(List<String> selectedTaskIds) {
+        ArrayList<String> tasks = new ArrayList<String>(); // TODO
         // optimize
         // > don't
         // create
@@ -378,32 +378,32 @@ public class TaskMgmt extends Composite {
         // use the
         // Task IDs
         // only
-        for (final String taskId : selectedTaskIds) {
+        for (String taskId : selectedTaskIds) {
             tasks.add(taskId);
         }
 
         taskSvcAsync.deleteTasks(tasks, new AsyncCallback<Void>() {
             @Override
-            public void onFailure(final Throwable caught) {
+            public void onFailure(Throwable caught) {
             }
 
             @Override
-            public void onSuccess(final Void result) {
+            public void onSuccess(Void result) {
                 getTasks();
             }
         });
     }
 
-    private void updateTask(final Task task) {
+    private void updateTask(Task task) {
         taskSvcAsync.updateTask(task, new AsyncCallback<Void>() {
             @Override
-            public void onFailure(final Throwable caught) {
+            public void onFailure(Throwable caught) {
                 Header.displayActionResult(
                         "Error Updating Task: " + caught.getMessage(), false);
             }
 
             @Override
-            public void onSuccess(final Void ignore) {
+            public void onSuccess(Void ignore) {
                 Header.displayActionResult("Task Updated Successfully", true);
                 getTasks();
             }
@@ -419,13 +419,13 @@ public class TaskMgmt extends Composite {
     }
 
     @UiHandler("updateTask")
-    void addTaskUpdate(final ClickEvent event) {
+    void addTaskUpdate(ClickEvent event) {
         updateTask(declareTaskUpdate());
         tabPanel.selectTab(1);
     }
 
     @UiHandler("showAllTasks")
-    void showAllTasks(final ClickEvent event) {
+    void showAllTasks(ClickEvent event) {
         showAllTasks.setVisible(false);
         getTasks();
     }

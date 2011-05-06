@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Alexander Orlov <alexander.orlov@loxal.net>
+ * Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,11 +27,11 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.*;
 import loxal.lox.service.meta.client.meta.authentication.AuthInfo;
 
-public final class Header extends Composite {
+public class Header extends Composite {
     interface Binder extends UiBinder<DockLayoutPanel, Header> {
     }
 
-    public void setAuthenticationInfo(final AuthInfo authInfo) {
+    public void setAuthenticationInfo(AuthInfo authInfo) {
         this.authInfo = authInfo;
     }
 
@@ -56,9 +56,9 @@ public final class Header extends Composite {
     @UiField
     static DecoratedPopupPanel actionResult;
 
-    private final I18n i18n = GWT.create(I18n.class);
+    private I18n i18n = GWT.create(I18n.class);
 
-    public static void displayActionResult(final String msg, final boolean success) {
+    public static void displayActionResult(String msg, boolean success) {
         actionResult.clear();
         actionResult.add(new HTML(msg));
         actionResult.setStyleName(success ? "success" : "failure", true);
@@ -71,12 +71,12 @@ public final class Header extends Composite {
         localeSwitch.setTabIndex(0);
         localeSwitch.setTitle("Choose your language" + " [Access Key: L]");
         localeSwitch.setFocus(true);
-        final String currentLocale = LocaleInfo.getCurrentLocale().getLocaleName().equals("default") ? "en" : LocaleInfo.getCurrentLocale().getLocaleName();
-        final String[] localeNames = LocaleInfo.getAvailableLocaleNames();
+        String currentLocale = LocaleInfo.getCurrentLocale().getLocaleName().equals("default") ? "en" : LocaleInfo.getCurrentLocale().getLocaleName();
+        String[] localeNames = LocaleInfo.getAvailableLocaleNames();
         localeSwitch.addItem("English", "en");
-        for (final String localeName : localeNames) {
+        for (String localeName : localeNames) {
             if (!localeName.equals("default")) {
-                final String localeNative = LocaleInfo.getLocaleNativeDisplayName(localeName);
+                String localeNative = LocaleInfo.getLocaleNativeDisplayName(localeName);
                 localeSwitch.addItem(localeNative, localeName);
                 if (localeName.equals(currentLocale)) {
                     localeSwitch.setSelectedIndex(localeSwitch.getItemCount() - 1);
@@ -86,9 +86,9 @@ public final class Header extends Composite {
     }
 
     @UiHandler("localeSwitch")
-    void onChange(final ChangeEvent event) {
-        final String localeName = localeSwitch.getValue(localeSwitch.getSelectedIndex());
-        final UrlBuilder builder = Window.Location.createUrlBuilder().setParameter("locale",
+    void onChange(ChangeEvent event) {
+        String localeName = localeSwitch.getValue(localeSwitch.getSelectedIndex());
+        UrlBuilder builder = Window.Location.createUrlBuilder().setParameter("locale",
                 localeName);
         Window.Location.replace(builder.buildString());
     }

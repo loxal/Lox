@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Alexander Orlov <alexander.orlov@loxal.net>
+ * Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ public interface AuthInfoSvcAsync {
      * Google Authentication Service
      *
      * @param requestUri Request originator
-     * @param callback the callback to return Properties of the authenticated user
+     * @param callback   the callback to return Properties of the authenticated user
      */
-    void getAuthInfo(final String requestUri, AsyncCallback<AuthInfo> callback);
+    void getAuthInfo(String requestUri, AsyncCallback<AuthInfo> callback);
 }

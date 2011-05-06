@@ -30,17 +30,17 @@ import java.util.Iterator;
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
 public class TaskSvcImpl extends RemoteServiceServlet implements TaskSvc {
-    private final DatastoreService datastoreService = DatastoreServiceFactory.getDatastoreService();
-    private final static String entityName = "Task";
+    private DatastoreService datastoreService = DatastoreServiceFactory.getDatastoreService();
+    private static String entityName = "Task";
 
     @Override
-    public void putTask(final Task task) {
-        final Entity entity = new Entity(entityName);
+    public void putTask(Task task) {
+        Entity entity = new Entity(entityName);
         entity.setProperty("name", task.getName());
         entity.setProperty("category", task.getCategory());
         entity.setProperty("description", task.getDescription());
         entity.setProperty("priority", task.getPriority());
-        final User user = UserServiceFactory.getUserService().getCurrentUser();
+        User user = UserServiceFactory.getUserService().getCurrentUser();
         if (user != null) entity.setProperty("userEmail", user.getEmail());
         else entity.setProperty("userEmail", null); // null must be set explicitly
 
@@ -48,8 +48,8 @@ public class TaskSvcImpl extends RemoteServiceServlet implements TaskSvc {
     }
 
     @Override
-    public void deleteTasks(final ArrayList<String> entityKeys) { // TODO check if these tasks actually belong to the user
-        final ArrayList<Key> keys = new ArrayList<Key>();
+    public void deleteTasks(ArrayList<String> entityKeys) { // TODO check if these tasks actually belong to the user
+        ArrayList<Key> keys = new ArrayList<Key>();
 
         for (String key : entityKeys) {
             keys.add(KeyFactory.createKey(entityName, Long.parseLong(key)));
@@ -59,8 +59,8 @@ public class TaskSvcImpl extends RemoteServiceServlet implements TaskSvc {
     }
 
     @Override
-    public void updateTask(final Task task) { // TODO check if this task actually belongs to the user
-        final Entity taskEntity;
+    public void updateTask(Task task) { // TODO check if this task actually belongs to the user
+        Entity taskEntity;
         try {
             taskEntity = datastoreService.get(KeyFactory.createKey(entityName, task.getId()));
 
@@ -76,7 +76,7 @@ public class TaskSvcImpl extends RemoteServiceServlet implements TaskSvc {
     }
 
     @Override
-    public ArrayList<Task> searchTasksWithName(final String taskName) {
+    public ArrayList<Task> searchTasksWithName(String taskName) {
         ArrayList<Task> tasks = new ArrayList<Task>();
 
         Query taskQuery = new Query(entityName);
@@ -87,8 +87,8 @@ public class TaskSvcImpl extends RemoteServiceServlet implements TaskSvc {
         taskQuery.addFilter("name", Query.FilterOperator.EQUAL, taskName);
         Iterator<Entity> taskQueryResult = datastoreService.prepare(taskQuery).asIterator();
         while (taskQueryResult.hasNext()) {
-            final Entity taskEntity = taskQueryResult.next();
-            final Task task = new Task();
+            Entity taskEntity = taskQueryResult.next();
+            Task task = new Task();
 
             task.setName(String.valueOf(taskEntity.getProperty("name")));
             task.setCategory(String.valueOf(taskEntity.getProperty("category")));
@@ -103,12 +103,12 @@ public class TaskSvcImpl extends RemoteServiceServlet implements TaskSvc {
     }
 
     @Override
-    public Task getTask(final String taskId) {
+    public Task getTask(String taskId) {
         try {
-            final Entity taskEntity = datastoreService.get(KeyFactory.createKey(entityName, Long.parseLong(taskId)));
+            Entity taskEntity = datastoreService.get(KeyFactory.createKey(entityName, Long.parseLong(taskId)));
 
-            final Task task = new Task();
-            final String userEmail = UserServiceFactory.getUserService().getCurrentUser() == null ? null : UserServiceFactory.getUserService().getCurrentUser().getEmail();
+            Task task = new Task();
+            String userEmail = UserServiceFactory.getUserService().getCurrentUser() == null ? null : UserServiceFactory.getUserService().getCurrentUser().getEmail();
             if (taskEntity.getProperty("userEmail") == null || taskEntity.getProperty("userEmail").equals(userEmail)) { // check for NPE first 
                 task.setUserEmail(String.valueOf(taskEntity.getProperty("userEmail")));
                 task.setName(String.valueOf(taskEntity.getProperty("name")));
@@ -127,17 +127,17 @@ public class TaskSvcImpl extends RemoteServiceServlet implements TaskSvc {
 
     @Override
     public ArrayList<Task> getTasks() {
-        final DatastoreService datastoreService = DatastoreServiceFactory.getDatastoreService();
-        final ArrayList<Task> tasks = new ArrayList<Task>();
-        final Query taskQuery = new Query(entityName);
+        DatastoreService datastoreService = DatastoreServiceFactory.getDatastoreService();
+        ArrayList<Task> tasks = new ArrayList<Task>();
+        Query taskQuery = new Query(entityName);
 
-        final String userEmail = UserServiceFactory.getUserService().getCurrentUser() == null ? null : UserServiceFactory.getUserService().getCurrentUser().getEmail();
+        String userEmail = UserServiceFactory.getUserService().getCurrentUser() == null ? null : UserServiceFactory.getUserService().getCurrentUser().getEmail();
         taskQuery.addFilter("userEmail", Query.FilterOperator.EQUAL, userEmail); // to assure that only user-owned entities are fetched
-        final Iterator<Entity> taskQueryResult = datastoreService.prepare(taskQuery).asIterator();
+        Iterator<Entity> taskQueryResult = datastoreService.prepare(taskQuery).asIterator();
         while (taskQueryResult.hasNext()) {
-            final Entity taskEntity = taskQueryResult.next();
+            Entity taskEntity = taskQueryResult.next();
 
-            final Task task = new Task();
+            Task task = new Task();
             task.setName(String.valueOf(taskEntity.getProperty("name")));
             task.setCategory(String.valueOf(taskEntity.getProperty("category")));
             task.setDescription(String.valueOf(taskEntity.getProperty("description")));

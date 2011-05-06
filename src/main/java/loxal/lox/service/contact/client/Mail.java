@@ -49,11 +49,11 @@ public class Mail implements EntryPoint {
     interface MailUiBinder extends UiBinder<LayoutPanel, Mail> {
     }
 
-    private final MailSvcAsync mailSvcAsync = GWT.create(MailSvc.class);
+    private MailSvcAsync mailSvcAsync = GWT.create(MailSvc.class);
 
     private Mail() {
-        final MailUiBinder binder = GWT.create(MailUiBinder.class);
-        final LayoutPanel app = binder.createAndBindUi(this);
+        MailUiBinder binder = GWT.create(MailUiBinder.class);
+        LayoutPanel app = binder.createAndBindUi(this);
 
         send.setAccessKey('S');
         sendNewMessage.setAccessKey('B');
@@ -62,7 +62,7 @@ public class Mail implements EntryPoint {
         RootLayoutPanel.get().add(app);
     }
 
-    private void displayActionResult(final String msg, final boolean success) {
+    private void displayActionResult(String msg, boolean success) {
         actionResult.clear();
         actionResult.add(new HTML(msg));
         actionResult.setStyleName(success ? "success" : "failure", true);
@@ -71,7 +71,7 @@ public class Mail implements EntryPoint {
     }
 
     private void sendMail() {
-        final MailMsg mailMsg = new MailMsg();
+        MailMsg mailMsg = new MailMsg();
         mailMsg.setSenderName();
         mailMsg.setSenderAddress(sender.getText());
         mailMsg.setSubject(subject.getText());
@@ -79,13 +79,13 @@ public class Mail implements EntryPoint {
 
         mailSvcAsync.sendMail(mailMsg, new AsyncCallback<Void>() {
             @Override
-            public void onFailure(final Throwable caught) {
+            public void onFailure(Throwable caught) {
                 GWT.log("Mail: " + caught);
                 displayActionResult("Message Sent Failure", false);
             }
 
             @Override
-            public void onSuccess(final Void result) {
+            public void onSuccess(Void result) {
                 GWT.log("Mail: " + result);
                 displayActionResult("Message Sent Successfully", true);
                 sender.setReadOnly(true);
@@ -98,7 +98,7 @@ public class Mail implements EntryPoint {
     }
 
     @UiHandler("sendNewMessage")
-    void sendNewMessage(final ClickEvent event) {
+    void sendNewMessage(ClickEvent event) {
         sender.setReadOnly(false);
         subject.setReadOnly(false);
         message.setReadOnly(false);
@@ -107,7 +107,7 @@ public class Mail implements EntryPoint {
     }
 
     @UiHandler("send")
-    void send(final ClickEvent event) {
+    void send(ClickEvent event) {
         sendMail();
     }
 }
