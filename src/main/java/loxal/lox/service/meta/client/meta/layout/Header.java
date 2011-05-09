@@ -28,7 +28,7 @@ import com.google.gwt.user.client.ui.*;
 import loxal.lox.service.meta.client.meta.authentication.AuthInfo;
 
 public class Header extends Composite {
-    interface Binder extends UiBinder<DockLayoutPanel, Header> {
+    interface Binder extends UiBinder<Widget, Header> {
     }
 
     public void setAuthenticationInfo(AuthInfo authInfo) {

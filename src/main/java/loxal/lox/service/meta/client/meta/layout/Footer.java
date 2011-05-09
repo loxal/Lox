@@ -20,9 +20,10 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
+import com.google.gwt.user.client.ui.Widget;
 
 public class Footer extends Composite {
-    interface Binder extends UiBinder<DockLayoutPanel, Footer> {
+    interface Binder extends UiBinder<Widget, Footer> {
     }
 
     private Footer() {

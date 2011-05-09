@@ -34,8 +34,6 @@ import java.util.Properties;
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
 public class MailSvcImpl extends RemoteServiceServlet implements MailSvc {
-    private static long serialVersionUID = 6311091300431587421L;
-
     public void sendMail(MailMsg mailMsg) {
         MimeMessage message = new MimeMessage(
                 Session.getDefaultInstance(

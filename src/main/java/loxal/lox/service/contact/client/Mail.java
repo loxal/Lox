@@ -46,14 +46,14 @@ public class Mail implements EntryPoint {
     public void onModuleLoad() {
     }
 
-    interface MailUiBinder extends UiBinder<LayoutPanel, Mail> {
+    interface MailUiBinder extends UiBinder<Widget, Mail> {
     }
 
     private MailSvcAsync mailSvcAsync = GWT.create(MailSvc.class);
 
     private Mail() {
         MailUiBinder binder = GWT.create(MailUiBinder.class);
-        LayoutPanel app = binder.createAndBindUi(this);
+        Widget app = binder.createAndBindUi(this);
 
         send.setAccessKey('S');
         sendNewMessage.setAccessKey('B');

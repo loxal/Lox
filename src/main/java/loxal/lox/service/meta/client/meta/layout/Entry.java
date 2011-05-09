@@ -25,13 +25,14 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.gwt.user.client.ui.TabLayoutPanel;
+import com.google.gwt.user.client.ui.Widget;
 import loxal.lox.service.meta.client.meta.authentication.AuthInfo;
 import loxal.lox.service.meta.client.meta.authentication.AuthInfoSvc;
 import loxal.lox.service.meta.client.meta.authentication.AuthInfoSvcAsync;
 import loxal.lox.service.meta.client.tasksolver.TaskMgmt;
 
 public class Entry implements EntryPoint {
-    interface Binder extends UiBinder<DockLayoutPanel, Entry> {
+    interface Binder extends UiBinder<Widget, Entry> {
     }
 
     private Binder binder = GWT.create(Binder.class);
@@ -49,7 +50,7 @@ public class Entry implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
-        DockLayoutPanel app = binder.createAndBindUi(this);
+        Widget app = binder.createAndBindUi(this);
         RootLayoutPanel.get().add(app);
         Window.setTitle(i18n.appTitle());
 
