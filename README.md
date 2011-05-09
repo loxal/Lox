@@ -1,10 +1,6 @@
-#summary Lox Project Overview
-#labels Featured,Phase-Design,Phase-Requirements
-
 *Remark:* This wiki page is referenced by the README file within the Lox project repository and therefore should be modified only via web interface.
 
 = Lox Project =
-
 Lox is a W2E (Web Workspace Environment) application which is currently just a *concept and technology preview*. It is intended for demo purposes and not for any specific tasks yet. This BWE class web app, a Browser Workspace Environment application brings the usability & ergonomics of classic desktop apps to the web. Therefore this app is about implementing a generic state-of-the-art UI that can be extended with plugins for specific purposes.
 
   * neither JPA nor JDO is used for persitence

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Alexander Orlov <alexander.orlov@loxal.net>
+ * Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,18 +19,19 @@ package loxal.lox.service.meta.client.tasksolver;
 import loxal.lox.service.meta.client.dto.Task;
 
 import java.util.ArrayList;
+
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public interface TaskSvcAsync {
-    void putTask(final Task task, AsyncCallback<Void> callback);
+    void putTask(Task task, AsyncCallback<Void> callback);
 
-    void deleteTasks(final ArrayList<String> entityKeys, AsyncCallback<Void> callback);
+    void deleteTasks(ArrayList<String> entityKeys, AsyncCallback<Void> callback);
 
     void getTasks(AsyncCallback<ArrayList<Task>> callback);
 
-    void getTask(final String taskId, AsyncCallback<Task> callback);
+    void getTask(String taskId, AsyncCallback<Task> callback);
 
-    void updateTask(final Task task, AsyncCallback<Void> callback);
+    void updateTask(Task task, AsyncCallback<Void> callback);
 
-    void searchTasksWithName(final String taskName, AsyncCallback<ArrayList<Task>> callback);
+    void searchTasksWithName(String taskName, AsyncCallback<ArrayList<Task>> callback);
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Alexander Orlov <alexander.orlov@loxal.net>
+ * Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,12 +26,12 @@ import loxal.lox.service.meta.client.meta.authentication.AuthInfoSvc;
 /**
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
-public final class AuthInfoSvcImpl extends RemoteServiceServlet implements AuthInfoSvc {
+public class AuthInfoSvcImpl extends RemoteServiceServlet implements AuthInfoSvc {
     @Override
-    public AuthInfo getAuthInfo(final String requestUri) {
-        final UserService userService = UserServiceFactory.getUserService();
-        final User user = userService.getCurrentUser();
-        final AuthInfo auth = new AuthInfo();
+    public AuthInfo getAuthInfo(String requestUri) {
+        UserService userService = UserServiceFactory.getUserService();
+        User user = userService.getCurrentUser();
+        AuthInfo auth = new AuthInfo();
 
         if (user != null) {
             auth.setLoggedIn(true);

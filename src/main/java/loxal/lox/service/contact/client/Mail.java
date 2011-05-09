@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Alexander Orlov <alexander.orlov@loxal.net>
+ * Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,7 @@ import com.google.gwt.user.client.ui.*;
 /**
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
-public final class Mail implements EntryPoint {
+public class Mail implements EntryPoint {
     @UiField
     TextBox sender;
     @UiField
@@ -42,14 +42,18 @@ public final class Mail implements EntryPoint {
     @UiField
     DecoratedPopupPanel actionResult;
 
-    interface MailUiBinder extends UiBinder<LayoutPanel, Mail> {
+    @Override
+    public void onModuleLoad() {
     }
 
-    private final MailSvcAsync mailSvcAsync = GWT.create(MailSvc.class);
+    interface MailUiBinder extends UiBinder<Widget, Mail> {
+    }
+
+    private MailSvcAsync mailSvcAsync = GWT.create(MailSvc.class);
 
     private Mail() {
-        final MailUiBinder binder = GWT.create(MailUiBinder.class);
-        final LayoutPanel app = binder.createAndBindUi(this);
+        MailUiBinder binder = GWT.create(MailUiBinder.class);
+        Widget app = binder.createAndBindUi(this);
 
         send.setAccessKey('S');
         sendNewMessage.setAccessKey('B');
@@ -58,12 +62,7 @@ public final class Mail implements EntryPoint {
         RootLayoutPanel.get().add(app);
     }
 
-    @Override
-    public void onModuleLoad() {
-
-    }
-
-    private void displayActionResult(final String msg, final boolean success) {
+    private void displayActionResult(String msg, boolean success) {
         actionResult.clear();
         actionResult.add(new HTML(msg));
         actionResult.setStyleName(success ? "success" : "failure", true);
@@ -72,7 +71,7 @@ public final class Mail implements EntryPoint {
     }
 
     private void sendMail() {
-        final MailMsg mailMsg = new MailMsg();
+        MailMsg mailMsg = new MailMsg();
         mailMsg.setSenderName();
         mailMsg.setSenderAddress(sender.getText());
         mailMsg.setSubject(subject.getText());
@@ -80,13 +79,13 @@ public final class Mail implements EntryPoint {
 
         mailSvcAsync.sendMail(mailMsg, new AsyncCallback<Void>() {
             @Override
-            public void onFailure(final Throwable caught) {
+            public void onFailure(Throwable caught) {
                 GWT.log("Mail: " + caught);
                 displayActionResult("Message Sent Failure", false);
             }
 
             @Override
-            public void onSuccess(final Void result) {
+            public void onSuccess(Void result) {
                 GWT.log("Mail: " + result);
                 displayActionResult("Message Sent Successfully", true);
                 sender.setReadOnly(true);
@@ -99,7 +98,7 @@ public final class Mail implements EntryPoint {
     }
 
     @UiHandler("sendNewMessage")
-    void sendNewMessage(final ClickEvent event) {
+    void sendNewMessage(ClickEvent event) {
         sender.setReadOnly(false);
         subject.setReadOnly(false);
         message.setReadOnly(false);
@@ -108,7 +107,7 @@ public final class Mail implements EntryPoint {
     }
 
     @UiHandler("send")
-    void send(final ClickEvent event) {
+    void send(ClickEvent event) {
         sendMail();
     }
 }

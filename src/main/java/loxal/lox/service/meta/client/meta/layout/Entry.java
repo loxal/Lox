@@ -25,18 +25,19 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.gwt.user.client.ui.TabLayoutPanel;
+import com.google.gwt.user.client.ui.Widget;
 import loxal.lox.service.meta.client.meta.authentication.AuthInfo;
 import loxal.lox.service.meta.client.meta.authentication.AuthInfoSvc;
 import loxal.lox.service.meta.client.meta.authentication.AuthInfoSvcAsync;
 import loxal.lox.service.meta.client.tasksolver.TaskMgmt;
 
-public final class Entry implements EntryPoint {
-    interface Binder extends UiBinder<DockLayoutPanel, Entry> {
+public class Entry implements EntryPoint {
+    interface Binder extends UiBinder<Widget, Entry> {
     }
 
-    private final Binder binder = GWT.create(Binder.class);
-    private final I18n i18n = GWT.create(I18n.class);
-    private final AuthInfoSvcAsync authInfoSvcAsync = GWT.create(AuthInfoSvc.class);
+    private Binder binder = GWT.create(Binder.class);
+    private I18n i18n = GWT.create(I18n.class);
+    private AuthInfoSvcAsync authInfoSvcAsync = GWT.create(AuthInfoSvc.class);
 
     @UiField
     TaskMgmt taskMgmt;
@@ -49,18 +50,18 @@ public final class Entry implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
-        final DockLayoutPanel app = binder.createAndBindUi(this);
+        Widget app = binder.createAndBindUi(this);
         RootLayoutPanel.get().add(app);
         Window.setTitle(i18n.appTitle());
 
         authInfoSvcAsync.getAuthInfo(GWT.getHostPageBaseURL(),
                 new AsyncCallback<AuthInfo>() {
                     @Override
-                    public void onFailure(final Throwable caught) {
+                    public void onFailure(Throwable caught) {
                     }
 
                     @Override
-                    public void onSuccess(final AuthInfo authInfo) {
+                    public void onSuccess(AuthInfo authInfo) {
                         header.setAuthenticationInfo(authInfo);
                         header.authentication();
                         taskTab.selectTab(0);

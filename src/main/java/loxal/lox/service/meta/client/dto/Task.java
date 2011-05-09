@@ -18,17 +18,14 @@ package loxal.lox.service.meta.client.dto;
 
 import com.google.gwt.user.client.rpc.IsSerializable;
 
-import javax.persistence.Id;
-
 /**
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
-public final class Task implements IsSerializable { // should be actually called "Problem"?
+public class Task implements IsSerializable { // should be actually called "Problem"?
 
     // TODO user-bounded tasks
     // TODO Edit View for Task
 
-    //    @Id
     private String id;
     private String name;
     private String description;

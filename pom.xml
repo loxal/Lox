@@ -17,9 +17,16 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <groupId>loxal.lox</groupId>
+    <artifactId>app</artifactId>
+    <version>1.1.4-RELEASE</version>
+    <packaging>war</packaging>
+    <name>Lox</name>
+    <inceptionYear>2010</inceptionYear>
+    <url>http://dev.loxal.net</url>
+    <description>Project to demonstrate GAE and GWT development patterns and paradigms</description>
 
     <organization>
         <name>Loxal</name>
@@ -63,14 +70,6 @@
         <tag>RELEASE</tag>
     </scm>
 
-    <groupId>loxal.lox</groupId>
-    <artifactId>app</artifactId>
-    <version>1.0.2-RELEASE</version>
-    <packaging>war</packaging>
-    <name>Lox</name>
-    <url>http://dev.loxal.net</url>
-    <description>Project to demonstrate GAE and GWT development patterns and paradigms</description>
-
     <distributionManagement>
         <repository>
             <id>loxal</id>
@@ -88,32 +87,15 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <gae.app.name>lox-loxal</gae.app.name>
         <gae.version>1.4.3</gae.version>
-        <gae.runtime>1.4.2</gae.runtime>
+        <gae.runtime>1.4.3</gae.runtime>
         <gae.maven>0.8.4</gae.maven>
         <gae.home>
-            <!--${user.home}/.m2/repository/com/google/appengine/appengine-java-sdk/${gae.version}/appengine-java-sdk-${gae.version}-->
-            ${user.home}/my/sdk/gae.java
+            ${user.home}/.m2/repository/com/google/appengine/appengine-java-sdk/${gae.version}/appengine-java-sdk-${gae.version}
         </gae.home>
         <gwt.version>2.2.0</gwt.version>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.google.appengine</groupId>
-            <artifactId>appengine-mapper</artifactId>
-            <version>r97</version>
-        </dependency>
-        <dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcpg-jdk16</artifactId>
-            <version>1.45</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-core</artifactId>
-            <version>0.20.2</version>
-        </dependency>
         <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-1.0-sdk</artifactId>
@@ -125,12 +107,6 @@
             <version>2.0.3</version>
             <scope>provided</scope>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>javax.validation</groupId>-->
-        <!--<artifactId>validation-api</artifactId>-->
-        <!--<version>1.0.0.GA</version>-->
-        <!--<scope>provided</scope>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>com.google.gwt</groupId>
             <artifactId>gwt-servlet</artifactId>
@@ -174,14 +150,14 @@
                         <type>pom</type>
                     </dependency>
                 </dependencies>
-                <executions>
-                    <execution>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <!--<executions>-->
+                <!--<execution>-->
+                <!--<phase>validate</phase>-->
+                <!--<goals>-->
+                <!--<goal>unpack</goal>-->
+                <!--</goals>-->
+                <!--</execution>-->
+                <!--</executions>-->
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -193,22 +169,21 @@
                     <hostedWebapp>${project.build.directory}/${project.build.finalName}</hostedWebapp>
                     <modules>
                         <module>${project.groupId}.service.contact.Contact</module>
-                        <module>${project.groupId}.service.linguistics.Linguistics</module>
                         <module>${project.groupId}.service.meta.Meta</module>
                     </modules>
-                    <server>com.google.appengine.tools.development.gwt.AppEngineLauncher</server>
-                    <extraJvmArgs>-javaagent:${gae.home}/lib/agent/appengine-agent.jar -Xmx1024m</extraJvmArgs>
-                    <copyWebapp>true</copyWebapp>
+                    <!--<server>com.google.appengine.tools.development.gwt.AppEngineLauncher</server>-->
+                    <!--<extraJvmArgs>-javaagent:${gae.home}/lib/agent/appengine-agent.jar -Xmx1024m</extraJvmArgs>-->
+                    <!--<copyWebapp>true</copyWebapp>-->
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>gwtcompile</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <!--<executions>-->
+                <!--<execution>-->
+                <!--<id>gwtcompile</id>-->
+                <!--<phase>prepare-package</phase>-->
+                <!--<goals>-->
+                <!--<goal>compile</goal>-->
+                <!--</goals>-->
+                <!--</execution>-->
+                <!--</executions>-->
             </plugin>
         </plugins>
     </build>

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Alexander Orlov <alexander.orlov@loxal.net>
+ * Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ package loxal.lox.service.meta.client.meta.authentication;
 
 import com.google.gwt.user.client.rpc.IsSerializable;
 
-public final class AuthInfo implements IsSerializable {
+public class AuthInfo implements IsSerializable {
 
     private boolean loggedIn;
     private boolean admin;

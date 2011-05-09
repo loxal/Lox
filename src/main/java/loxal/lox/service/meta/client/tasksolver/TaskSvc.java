@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Alexander Orlov <alexander.orlov@loxal.net>
+ * Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,15 +24,15 @@ import java.util.ArrayList;
 
 @RemoteServiceRelativePath("Task")
 public interface TaskSvc extends RemoteService {
-    void putTask(final Task task);
+    void putTask(Task task);
 
-    void deleteTasks(final ArrayList<String> entityKeys);
+    void deleteTasks(ArrayList<String> entityKeys);
 
     ArrayList<Task> getTasks();
 
-    Task getTask(final String taskId);
+    Task getTask(String taskId);
 
-    void updateTask(final Task task);
+    void updateTask(Task task);
 
-    ArrayList<Task> searchTasksWithName(final String taskName);
+    ArrayList<Task> searchTasksWithName(String taskName);
 }

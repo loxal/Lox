@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Alexander Orlov <alexander.orlov@loxal.net>
+ * Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ import com.google.gwt.user.client.rpc.IsSerializable;
 /**
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
-public final class MailMsg implements IsSerializable {
+public class MailMsg implements IsSerializable {
     private String senderAddress;
     private String senderName;
     private String subject;
