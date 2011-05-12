@@ -33,4 +33,5 @@
     <stylesheet src="winter.css"/>
 
     <entry-point class="loxal.lox.service.meta.client.meta.layout.Entry"/>
+    <set-configuration-property name="UiBinder.useSafeHtmlTemplates" value="true"/>
 </module>

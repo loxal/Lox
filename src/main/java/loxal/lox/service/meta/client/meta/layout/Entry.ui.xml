@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright 2010 Alexander Orlov <alexander.orlov@loxal.net>
+  ~ Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@
              xmlns:task.tasksolver="urn:import:loxal.lox.service.meta.client.tasksolver"
              xmlns:meta.layout="urn:import:loxal.lox.service.meta.client.meta.layout"
              ui:generateFormat="com.google.gwt.i18n.rebind.format.PropertiesFormat"
-             ui:generateKeys="com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator"
+             ui:generateKeys="com.google.gwt.i18n.server.keygen.MD5KeyGenerator"
              ui:generateLocales="default">
 
     <g:DockLayoutPanel unit="EM">

@@ -25,4 +25,5 @@
     <inherits name="com.google.gwt.user.theme.standard.Standard"/>
 
     <entry-point class="loxal.lox.service.contact.client.Mail"/>
+    <set-configuration-property name="UiBinder.useSafeHtmlTemplates" value="true"/>
 </module>

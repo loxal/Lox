@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright 2010 Alexander Orlov <alexander.orlov@loxal.net>
+  ~ Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
              xmlns:g="urn:import:com.google.gwt.user.client.ui"
              ui:generateFormat="com.google.gwt.i18n.rebind.format.PropertiesFormat"
-             ui:generateKeys="com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator"
+             ui:generateKeys="com.google.gwt.i18n.server.keygen.MD5KeyGenerator"
              ui:generateLocales="default">
 
     <ui:image field="logo" src="../../../public/img/logo-96.png"/>
