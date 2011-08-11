@@ -86,11 +86,12 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <gae.app.name>lox-loxal</gae.app.name>
-        <gae.version>1.4.3</gae.version>
-        <gae.runtime>1.4.3</gae.runtime>
+        <gae.version>1.5.0.1</gae.version>
+        <gae.runtime>1.5.0.1</gae.runtime>
         <gae.maven>0.8.4</gae.maven>
         <gae.home>
-            ${user.home}/.m2/repository/com/google/appengine/appengine-java-sdk/${gae.version}/appengine-java-sdk-${gae.version}
+            <!--${user.home}/.m2/repository/com/google/appengine/appengine-java-sdk/${gae.version}/appengine-java-sdk-${gae.version}-->
+            ${user.home}/my/sdk/gae.java
         </gae.home>
         <gwt.ver>2.3.0</gwt.ver>
     </properties>
@@ -99,6 +100,11 @@
         <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-1.0-sdk</artifactId>
+            <version>${gae.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-java-sdk</artifactId>
             <version>${gae.version}</version>
         </dependency>
         <!--<dependency>-->
