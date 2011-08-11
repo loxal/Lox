@@ -38,13 +38,13 @@
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>AuthInfoSvcImpl</servlet-name>
-        <url-pattern>/meta/AuthInfo</url-pattern>
+        <servlet-name>TaskSvcImpl</servlet-name>
+        <url-pattern>/meta/Task</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>TaskSvcImpl</servlet-name>
-        <url-pattern>/meta/Task</url-pattern>
+        <servlet-name>AuthInfoSvcImpl</servlet-name>
+        <url-pattern>/meta/AuthInfo</url-pattern>
     </servlet-mapping>
 
     <servlet>

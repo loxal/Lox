@@ -26,7 +26,7 @@
     <g:TabLayoutPanel barHeight="32" ui:field="tabPanel">
         <g:tab>
             <g:header>
-                <ui:msg>Create Task</ui:msg>
+                <ui:msg>Create</ui:msg>
                 <!--Actually: DEFINE Task-->
             </g:header>
             <g:VerticalPanel>
@@ -55,7 +55,7 @@
 
         <g:tab>
             <g:header>
-                <ui:msg>Show Tasks</ui:msg>
+                <ui:msg>Show</ui:msg>
             </g:header>
             <g:VerticalPanel ui:field="control">
                 <c:CellTable ui:field="taskPager" pageSize="9"/>
@@ -69,7 +69,7 @@
 
         <g:tab>
             <g:header>
-                <ui:msg>Process Task</ui:msg>
+                <ui:msg>Process</ui:msg>
             </g:header>
             <g:VerticalPanel ui:field="processTaskPanel">
                 <g:MenuBar animationEnabled="true" ui:field="menu" focusOnHoverEnabled="true" vertical="false"
@@ -91,7 +91,6 @@
                         </g:MenuBar>
                     </g:MenuItem>
                 </g:MenuBar>
-
                 <g:Label>
                     <ui:msg>ID</ui:msg>
                 </g:Label>
