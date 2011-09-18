@@ -5,7 +5,6 @@
   </component>
   <component name="CppTools.Loader" reportImplicitCastToBool="false" reportNameReferencedOnce="false" version="3" compilerSelect="AUTO" />
   <component name="DependencyValidationManager">
-    <scope name="Linguistics" pattern="file[Lox]:src/main/java/loxal/lox/service/linguistics//*||file[Lox]:src/main/webapp/WEB-INF/appengine-web.xml||file[Lox]:src/main/webapp/WEB-INF/queue.xml||file[Lox]:src/main/webapp/WEB-INF/mapreduce.xml||file[Lox]:src/main/webapp/WEB-INF/web.xml||file[Lox]:src/main/webapp/WEB-INF/datastore-indexes.xml||file[Lox]:src/main/webapp/WEB-INF/cron.xml" />
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
   <component name="EntryPointsManager">
@@ -15,23 +14,12 @@
     <autodetection-disabled>
       <facet-type id="gwt">
         <modules>
-          <module name="app" />
-        </modules>
-      </facet-type>
-      <facet-type id="Scala">
-        <modules>
-          <module name="Lox">
-            <files>
-              <file url="file://$PROJECT_DIR$/src/loxal/lox/service/linguistics/DomainLangExtractor.scala" />
-              <file url="file://$PROJECT_DIR$/test/loxal/lox/meta/server/AuthInfoSvcImplTest.scala" />
-              <file url="file://$PROJECT_DIR$/test/loxal/lox/service/meta/server/TaskSvcImplTest.scala" />
-            </files>
-          </module>
+          <module name="Lox" />
         </modules>
       </facet-type>
       <facet-type id="web">
         <modules>
-          <module name="app" />
+          <module name="Lox" />
         </modules>
       </facet-type>
     </autodetection-disabled>
@@ -41,7 +29,7 @@
   </component>
   <component name="IdProvider" IDEtalkID="68B1710BED4F78DCBC0356B6B190FA52" />
   <component name="JavadocGenerationManager">
-    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/doc" />
+    <option name="OUTPUT_DIRECTORY" />
     <option name="OPTION_SCOPE" value="protected" />
     <option name="OPTION_HIERARCHY" value="true" />
     <option name="OPTION_NAVIGATOR" value="true" />
@@ -52,7 +40,7 @@
     <option name="OPTION_DOCUMENT_TAG_VERSION" value="false" />
     <option name="OPTION_DOCUMENT_TAG_DEPRECATED" value="true" />
     <option name="OPTION_DEPRECATED_LIST" value="true" />
-    <option name="OTHER_OPTIONS" />
+    <option name="OTHER_OPTIONS" value="" />
     <option name="HEAP_SIZE" />
     <option name="LOCALE" />
     <option name="OPEN_IN_BROWSER" value="true" />
@@ -60,7 +48,6 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
@@ -110,7 +97,7 @@
     <default-html-doctype>http://www.w3.org/1999/xhtml</default-html-doctype>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="1.6" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/target" />
+    <output url="file://$PROJECT_DIR$/target/Lox" />
   </component>
   <component name="ResourceManagerContainer">
     <option name="myResourceBundles">

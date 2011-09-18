@@ -1,7 +1,5 @@
 <component name="CopyrightManager">
-  <settings default="loxal">
-    <module2copyright>
-      <element module="All" copyright="loxal" />
-    </module2copyright>
+  <settings default="">
+    <module2copyright />
   </settings>
 </component>
