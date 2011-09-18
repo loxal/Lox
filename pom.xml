@@ -20,7 +20,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>loxal.lox</groupId>
-    <artifactId>app</artifactId>
+    <artifactId>lox</artifactId>
     <version>1.1.5-RELEASE</version>
     <packaging>war</packaging>
     <name>Lox</name>
@@ -86,14 +86,14 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <gae.app.name>lox-loxal</gae.app.name>
-        <gae.version>1.5.0.1</gae.version>
-        <gae.runtime>1.5.0.1</gae.runtime>
+        <gae.version>1.5.4</gae.version>
+        <gae.runtime>1.5.4</gae.runtime>
         <gae.maven>0.8.4</gae.maven>
         <gae.home>
             <!--${user.home}/.m2/repository/com/google/appengine/appengine-java-sdk/${gae.version}/appengine-java-sdk-${gae.version}-->
             ${user.home}/my/sdk/gae.java
         </gae.home>
-        <gwt.ver>2.3.0</gwt.ver>
+        <gwt.ver>2.4.0</gwt.ver>
     </properties>
 
     <dependencies>
@@ -107,12 +107,6 @@
             <artifactId>appengine-java-sdk</artifactId>
             <version>${gae.version}</version>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>org.eclipse.persistence</groupId>-->
-        <!--<artifactId>javax.persistence</artifactId>-->
-        <!--<version>2.0.3</version>-->
-        <!--<scope>provided</scope>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>com.google.gwt</groupId>
             <artifactId>gwt-servlet</artifactId>
@@ -132,14 +126,6 @@
             <version>1.0.0.GA</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>1.0.0.GA</version>
-            <classifier>sources</classifier>
-            <scope>provided</scope>
-        </dependency>
-
     </dependencies>
 
     <build>
