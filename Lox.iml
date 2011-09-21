@@ -13,6 +13,8 @@
       <facet type="google-app-engine" name="Google App Engine">
         <configuration>
           <password>dfdedfc2dfcfdfccdfdbdfccdfdbdfc1dfc5dfd2dfc9dfcddfdfdfc0dfd3dfc5</password>
+          <persistence-api>JPA</persistence-api>
+          <run-enhancer-on-make>true</run-enhancer-on-make>
           <sdk-home-path>$MODULE_DIR$/../../sdk/gae.java</sdk-home-path>
           <email>alexander.orlov@loxal.net</email>
         </configuration>
