@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+  ~ Use of this source code is governed by a BSD-style
+  ~ license that can be found in the LICENSE file.
+  -->
+
 <messagebundle>
     <msg name="gadget_title">Contact</msg>
     <msg name="gadget_description">A mail form to send messages.</msg>
-    <msg name="gadget_thumbnail">http://res.loxal.net/meta/img/logo.png</msg>
-    <msg name="gadget_screenshot">http://res.loxal.net/meta/img/logo.png</msg>
+    <msg name="gadget_thumbnail">http://lox.loxal.net/meta/img/logo.png</msg>
+    <msg name="gadget_screenshot">http://lox.loxal.net/meta/img/logo.png</msg>
 </messagebundle>
