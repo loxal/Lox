@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messagebundle>
+    <msg name="gadget_title">Sol Demo</msg>
+    <msg name="gadget_description">Sol, a GAE (Python) sample service project.</msg>
+    <msg name="gadget_thumbnail">http://lox.loxal.net/meta/img/logo.png</msg>
+    <msg name="gadget_screenshot">http://lox.loxal.net/meta/img/logo.png</msg>
+</messagebundle>
