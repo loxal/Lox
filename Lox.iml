@@ -10,20 +10,9 @@
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
         </webroots>
       </configuration>
-      <facet type="google-app-engine" name="Google App Engine">
-        <configuration>
-          <password>dfdedfc2dfcfdfccdfdbdfccdfdbdfc1dfc5dfd2dfc9dfcddfdfdfc0dfd3dfc5</password>
-          <persistence-api>JPA</persistence-api>
-          <run-enhancer-on-make>true</run-enhancer-on-make>
-          <sdk-home-path>$MODULE_DIR$/../../sdk/gae.java</sdk-home-path>
-          <email>alexander.orlov@loxal.net</email>
-        </configuration>
-      </facet>
     </facet>
     <facet type="gwt" name="GWT">
       <configuration>
-        <setting name="compilerMaxHeapSize" value="256" />
-        <setting name="gwtScriptOutputStyle" value="DETAILED" />
         <setting name="gwtSdkUrl" value="file://$MAVEN_REPOSITORY$/com/google/gwt/gwt-dev/2.4.0/" />
         <setting name="gwtSdkType" value="maven" />
         <setting name="webFacet" value="Web" />
