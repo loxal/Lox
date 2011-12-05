@@ -9,11 +9,16 @@
         "http://google-web-toolkit.googlecode.com/svn/releases/2.4/distro-source/core/src/gwt-module.dtd">
 
 <module>
+    <source path="client"/>
+    <!--<source path="event"/>-->
+    <source path="shared"/>
+
     <stylesheet src="layout.css"/>
     <stylesheet src="winter.css"/>
 
     <inherits name="com.google.gwt.user.User"/>
     <inherits name="com.google.gwt.uibinder.UiBinder"/>
+    <inherits name="com.google.web.bindery.requestfactory.RequestFactory"/>
     <inherits name="com.googlecode.objectify.Objectify"/>
 
     <inherits name="com.google.gwt.i18n.I18N"/>
