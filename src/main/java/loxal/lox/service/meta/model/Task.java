@@ -6,7 +6,11 @@
 
 package loxal.lox.service.meta.model;
 
+import com.googlecode.objectify.Key;
 import com.googlecode.objectify.annotation.Entity;
+
+import javax.persistence.Embedded;
+import java.util.List;
 
 /**
  * @author Alexander Orlov <alexander.orlov@loxal.net>
@@ -18,6 +22,11 @@ public class Task extends DatastoreObject { // "Problem"?
     private String userEmail;
     private Integer priority;
     private String category;
+    private Key<AppUser> owner;
+    //    private ListType listType;
+    @Embedded
+    private List<ListItem> items;
+
 
     public String getUserEmail() {
         return userEmail;
