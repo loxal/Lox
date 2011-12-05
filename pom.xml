@@ -11,12 +11,12 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>loxal</groupId>
     <artifactId>lox</artifactId>
-    <version>1.2.0-RELEASE</version>
+    <version>2.0.0-RELEASE</version>
     <packaging>war</packaging>
     <name>Lox</name>
     <inceptionYear>2010</inceptionYear>
     <url>http://dev.loxal.net</url>
-    <description>GAE (Java) + GWT (DTO) Showcase</description>
+    <description>GAE/GWT Showcase</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -48,6 +48,13 @@
             <artifactId>gwt-user</artifactId>
             <version>${gwt.ver}</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.objectify</groupId>
+            <artifactId>objectify</artifactId>
+            <version>3.1</version>
+            <systemPath>${project.basedir}/lib/objectify-3.1.jar</systemPath>
+            <scope>system</scope>
         </dependency>
     </dependencies>
 
@@ -118,14 +125,14 @@
                 <configuration>
                     <unpackVersion>${gae.version}</unpackVersion>
                 </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>net.kindleit</groupId>
-                        <artifactId>gae-runtime</artifactId>
-                        <version>${gae.runtime}</version>
-                        <type>pom</type>
-                    </dependency>
-                </dependencies>
+                <!--<dependencies>-->
+                <!--<dependency>-->
+                <!--<groupId>net.kindleit</groupId>-->
+                <!--<artifactId>gae-runtime</artifactId>-->
+                <!--<version>${gae.runtime}</version>-->
+                <!--<type>pom</type>-->
+                <!--</dependency>-->
+                <!--</dependencies>-->
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>

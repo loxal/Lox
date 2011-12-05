@@ -8,9 +8,13 @@
 <!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.4//EN"
         "http://google-web-toolkit.googlecode.com/svn/releases/2.4/distro-source/core/src/gwt-module.dtd">
 
-<module rename-to="meta">
+<module>
+    <stylesheet src="layout.css"/>
+    <stylesheet src="winter.css"/>
+
     <inherits name="com.google.gwt.user.User"/>
     <inherits name="com.google.gwt.uibinder.UiBinder"/>
+    <inherits name="com.googlecode.objectify.Objectify"/>
 
     <inherits name="com.google.gwt.i18n.I18N"/>
     <extend-property name="locale" values="de"/>
@@ -18,9 +22,6 @@
     <extend-property name="locale" values="zh"/>
 
     <inherits name="com.google.gwt.user.theme.standard.Standard"/>
-
-    <stylesheet src="layout.css"/>
-    <stylesheet src="winter.css"/>
 
     <entry-point class="loxal.lox.service.meta.client.meta.layout.Entry"/>
     <set-configuration-property name="UiBinder.useSafeHtmlTemplates" value="true"/>

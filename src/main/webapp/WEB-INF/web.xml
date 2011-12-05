@@ -13,7 +13,7 @@
     <description>A Google App Engine / GWT Application</description>
     <display-name>loxal: Lox - Web Workspace Environment (W2E)</display-name>
     <welcome-file-list>
-        <welcome-file>meta/index.html</welcome-file>
+        <welcome-file>main.html</welcome-file>
     </welcome-file-list>
 
     <servlet>
@@ -28,12 +28,12 @@
 
     <servlet-mapping>
         <servlet-name>TaskSvcImpl</servlet-name>
-        <url-pattern>/meta/Task</url-pattern>
+        <url-pattern>/loxal.lox.service.meta.Meta/Task</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>AuthInfoSvcImpl</servlet-name>
-        <url-pattern>/meta/AuthInfo</url-pattern>
+        <url-pattern>/loxal.lox.service.meta.Meta/AuthInfo</url-pattern>
     </servlet-mapping>
 
     <servlet>
