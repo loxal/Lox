@@ -6,16 +6,16 @@
 
 package loxal.lox.service.meta.server;
 
-import com.googlecode.objectify.Key;
-import loxal.lox.service.meta.model.AppUser;
 import loxal.lox.service.meta.model.ItemList;
 
 import java.util.List;
 
-public class ItemListDao extends ObjectifyDao<ItemList> {
-    @Override
+public class ItemListDao {
+    //public class ItemListDao extends ObjectifyDao<ItemList> {
+//    @Override
     public List<ItemList> listAll() {
-        return this.listAllForUser();
+//        return this.listAllForUser();
+        return null;
     }
 
     /**
@@ -26,21 +26,22 @@ public class ItemListDao extends ObjectifyDao<ItemList> {
 //        final User user = userService.getCurrentUser();
 //        AppUser loggedInUser =  user;
 //        AppUser loggedInUser =  LoginService.getLoggedInUser();
-        AppUser loggedInUser = new AppUser();
+//        AppUser loggedInUser = new AppUser();
 
 //        list.setOwner(loggedInUser);
-        this.put(list);
+//        this.put(list);
     }
 
     public ItemList saveAndReturn(ItemList list) {
 //        AppUser loggedInUser = LoginService.getLoggedInUser();
 //        list.setOwner(loggedInUser);
-        Key<ItemList> key = this.put(list);
-        try {
-            return this.get(key);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+//        Key<ItemList> key = this.put(list);
+//        try {
+//            return this.get(key);
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
+        return null;
     }
 
     /**
@@ -49,6 +50,6 @@ public class ItemListDao extends ObjectifyDao<ItemList> {
      * @param list
      */
     public void removeList(ItemList list) {
-        this.delete(list);
+//        this.delete(list);
     }
 }

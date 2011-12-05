@@ -10,7 +10,7 @@
 
 <module>
     <source path="client"/>
-    <!--<source path="event"/>-->
+    <source path="event"/>
     <source path="shared"/>
 
     <stylesheet src="layout.css"/>

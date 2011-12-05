@@ -6,6 +6,7 @@
 
 package loxal.lox.service.meta.shared;
 
+import com.google.web.bindery.requestfactory.shared.EntityProxy;
 import com.google.web.bindery.requestfactory.shared.ProxyFor;
 import loxal.lox.service.meta.model.ItemList;
 import loxal.lox.service.meta.server.ObjectifyLocator;
@@ -13,10 +14,9 @@ import loxal.lox.service.meta.server.ObjectifyLocator;
 import java.util.List;
 
 @ProxyFor(value = ItemList.class, locator = ObjectifyLocator.class)
-public interface ItemListProxy {
-    // Note: enums work!
+public interface ItemListProxy extends EntityProxy {
     public enum ListType {
-        NOTES, TODO
+        NOTES, TODO,
     }
 
     String getName();
@@ -27,7 +27,8 @@ public interface ItemListProxy {
 
     ListType getListType();
 
-    AppUserProxy getOwner();
+//    AppUserProxy getOwner();
+//    Key<AppUser> getOwner();
 
     void setListType(ListType type);
 

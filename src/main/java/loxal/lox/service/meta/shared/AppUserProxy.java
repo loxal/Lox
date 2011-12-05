@@ -6,11 +6,12 @@
 
 package loxal.lox.service.meta.shared;
 
+import com.google.web.bindery.requestfactory.shared.EntityProxy;
 import com.google.web.bindery.requestfactory.shared.ProxyFor;
 import loxal.lox.service.meta.model.AppUser;
 import loxal.lox.service.meta.server.ObjectifyLocator;
 
 @ProxyFor(value = AppUser.class, locator = ObjectifyLocator.class)
-public interface AppUserProxy {
+public interface AppUserProxy extends EntityProxy {
     String getEmail();
 }
