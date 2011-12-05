@@ -143,27 +143,6 @@
                     <!--<extraJvmArgs>-javaagent:${gae.home}/lib/agent/appengine-agent.jar -Xmx1024m</extraJvmArgs>-->
                     <!--<copyWebapp>true</copyWebapp>-->
                 </configuration>
-                <!--<executions>-->
-                <!--<execution>-->
-                <!--<id>gwtcompile</id>-->
-                <!--<phase>prepare-package</phase>-->
-                <!--<goals>-->
-                <!--<goal>compile</goal>-->
-                <!--</goals>-->
-                <!--</execution>-->
-                <!--</executions>-->
-                <dependencies>
-                    <dependency>
-                        <groupId>com.google.gwt</groupId>
-                        <artifactId>gwt-user</artifactId>
-                        <version>${gwt.ver}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>com.google.gwt</groupId>
-                        <artifactId>gwt-dev</artifactId>
-                        <version>${gwt.ver}</version>
-                    </dependency>
-                </dependencies>
             </plugin>
         </plugins>
     </build>
