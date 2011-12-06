@@ -21,13 +21,10 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <gae.app.name>lox1-loxal</gae.app.name>
-        <gae.version>1.6.0</gae.version>
-        <gae.runtime>1.6.0</gae.runtime>
-        <gae.maven>0.9.2</gae.maven>
-        <gae.home>
-            <!--${user.home}/.m2/repository/com/google/appengine/appengine-java-sdk/${gae.version}/appengine-java-sdk-${gae.version}-->
-            ${user.home}/my/sdk/gae.java
-        </gae.home>
+        <gae.ver>1.6.0</gae.ver>
+        <gae.runtime.ver>${gae.ver}</gae.runtime.ver>
+        <gae.maven.ver>0.9.2</gae.maven.ver>
+        <gae.home>${user.home}/my/sdk/gae.java</gae.home>
         <gwt.ver>2.4.0</gwt.ver>
     </properties>
 
@@ -85,25 +82,25 @@
         <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-1.0-sdk</artifactId>
-            <version>${gae.version}</version>
+            <version>${gae.ver}</version>
         </dependency>
         <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-testing</artifactId>
-            <version>${gae.version}</version>
+            <version>${gae.ver}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-stubs</artifactId>
-            <version>${gae.version}</version>
+            <version>${gae.ver}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.googlecode.objectify</groupId>
             <artifactId>objectify</artifactId>
             <version>3.1</version>
-            <systemPath>${project.basedir}/lib/objectify-3.1.jar</systemPath>
+            <systemPath>${user.home}/my/opt/objectify/objectify-3.1.jar</systemPath>
             <scope>system</scope>
         </dependency>
         <dependency>
@@ -177,18 +174,10 @@
             <plugin>
                 <groupId>net.kindleit</groupId>
                 <artifactId>maven-gae-plugin</artifactId>
-                <version>${gae.maven}</version>
-                <configuration>
-                    <unpackVersion>${gae.version}</unpackVersion>
-                </configuration>
-                <!--<dependencies>-->
-                <!--<dependency>-->
-                <!--<groupId>net.kindleit</groupId>-->
-                <!--<artifactId>gae-runtime</artifactId>-->
-                <!--<version>${gae.runtime}</version>-->
-                <!--<type>pom</type>-->
-                <!--</dependency>-->
-                <!--</dependencies>-->
+                <version>${gae.maven.ver}</version>
+                <!--<configuration>-->
+                <!--<unpackVersion>${gae.ver}</unpackVersion>-->
+                <!--</configuration>-->
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -198,13 +187,13 @@
                     <logLevel>WARN</logLevel>
                     <runTarget>/meta/index.html</runTarget>
                     <hostedWebapp>${project.build.directory}/${project.build.finalName}</hostedWebapp>
-                    <!--<modules>-->
-                    <!--<module>${project.groupId}.service.contact.Contact</module>-->
-                    <!--<module>${project.groupId}.service.meta.Meta</module>-->
-                    <!--</modules>-->
-                    <!--<server>com.google.appengine.tools.development.gwt.AppEngineLauncher</server>-->
-                    <!--<extraJvmArgs>-javaagent:${gae.home}/lib/agent/appengine-agent.jar -Xmx1024m</extraJvmArgs>-->
-                    <!--<copyWebapp>true</copyWebapp>-->
+                    <modules>
+                        <module>${project.groupId}.${project.artifactId}.contact.Contact</module>
+                        <module>${project.groupId}.${project.artifactId}.meta.Meta</module>
+                    </modules>
+                    <server>com.google.appengine.tools.development.gwt.AppEngineLauncher</server>
+                    <extraJvmArgs>-javaagent:${gae.home}/lib/agent/appengine-agent.jar -Xmx1024m</extraJvmArgs>
+                    <copyWebapp>true</copyWebapp>
                 </configuration>
             </plugin>
         </plugins>
