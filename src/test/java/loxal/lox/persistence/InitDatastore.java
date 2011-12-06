@@ -33,7 +33,7 @@ public class InitDatastore extends Common {
 
     @Test
     public void test() throws Exception {
-        ObjectifyService.register(Car.class);
+//        ObjectifyService.register(Car.class);
         Objectify ofy = ObjectifyService.begin();
         ofy.put(new Car("123123", "red"));
         Car c = ofy.get(Car.class, "123123");

@@ -23,22 +23,22 @@
 
     <servlet>
         <servlet-name>TaskSvcImpl</servlet-name>
-        <servlet-class>loxal.lox.service.meta.server.TaskSvcImpl</servlet-class>
+        <servlet-class>loxal.lox.meta.server.TaskSvcImpl</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>TaskSvcImpl</servlet-name>
-        <url-pattern>/loxal.lox.service.meta.Meta/Task</url-pattern>
+        <url-pattern>/loxal.lox.meta.Meta/Task</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>AuthInfoSvcImpl</servlet-name>
-        <url-pattern>/loxal.lox.service.meta.Meta/AuthInfo</url-pattern>
+        <url-pattern>/loxal.lox.meta.Meta/AuthInfo</url-pattern>
     </servlet-mapping>
 
     <servlet>
         <servlet-name>MailSvcImpl</servlet-name>
-        <servlet-class>loxal.lox.service.contact.server.MailSvcImpl</servlet-class>
+        <servlet-class>loxal.lox.contact.server.MailSvcImpl</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>MailSvcImpl</servlet-name>

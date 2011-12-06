@@ -10,8 +10,8 @@ import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
-import loxal.lox.service.meta.client.meta.authentication.AuthInfo;
-import loxal.lox.service.meta.client.meta.authentication.AuthInfoSvc;
+import loxal.lox.meta.client.meta.authentication.AuthInfo;
+import loxal.lox.meta.client.meta.authentication.AuthInfoSvc;
 
 /**
  * @author Alexander Orlov <alexander.orlov@loxal.net>
