@@ -6,11 +6,47 @@
 
 package loxal.lox.persistence;
 
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
+import com.google.appengine.tools.development.testing.LocalTaskQueueTestConfig;
+import com.googlecode.objectify.Objectify;
+import com.googlecode.objectify.ObjectifyService;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 public class InitDatastore extends Common {
+    private final LocalServiceTestHelper helper =
+            new LocalServiceTestHelper(new LocalTaskQueueTestConfig());
+
+    @Before
+    public void setUp() {
+        helper.setUp();
+    }
+
+    @After
+    public void tearDown() {
+        helper.tearDown();
+    }
 
     @Test
     public void test() throws Exception {
+        ObjectifyService.register(Car.class);
+        Objectify ofy = ObjectifyService.begin();
+        ofy.put(new Car("123123", "red"));
+        Car c = ofy.get(Car.class, "123123");
+        ofy.delete(c);
+    }
+
+    @Test
+    // run this test twice to prove we're not leaking any state across tests
+    public void doTest() {
+        DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
+//        assertEquals(0, ds.prepare(new Query("yam")).countEntities(withLimit(10)));
+        ds.put(new Entity("yam"));
+        ds.put(new Entity("yam"));
+//        assertEquals(2, ds.prepare(new Query("yam")).countEntities(withLimit(10)));
     }
 }
