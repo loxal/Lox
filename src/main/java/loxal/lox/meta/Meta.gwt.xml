@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+  ~ Use of this source code is governed by a BSD-style
+  ~ license that can be found in the LICENSE file.
+  -->
+
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.4//EN"
+        "http://google-web-toolkit.googlecode.com/svn/releases/2.4/distro-source/core/src/gwt-module.dtd">
+
+<module>
+    <source path="client"/>
+    <source path="event"/>
+    <source path="shared"/>
+
+    <inherits name="com.google.gwt.user.User"/>
+    <inherits name="com.google.gwt.uibinder.UiBinder"/>
+    <inherits name="com.google.web.bindery.requestfactory.RequestFactory"/>
+    <inherits name="com.googlecode.objectify.Objectify"/>
+
+    <inherits name="com.google.gwt.i18n.I18N"/>
+    <extend-property name="locale" values="de"/>
+    <extend-property name="locale" values="ru"/>
+    <extend-property name="locale" values="zh"/>
+
+    <inherits name="com.google.gwt.user.theme.clean.Clean"/>
+
+    <entry-point class="loxal.lox.meta.client.meta.layout.Entry"/>
+    <set-configuration-property name="UiBinder.useSafeHtmlTemplates" value="true"/>
+</module>
