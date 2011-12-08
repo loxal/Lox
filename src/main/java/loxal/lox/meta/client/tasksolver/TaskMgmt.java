@@ -1,17 +1,7 @@
 /*
- * Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+ * Use of this source code is governed by a BSD-style
+ * license that can be found in the LICENSE file.
  */
 
 package loxal.lox.meta.client.tasksolver;
@@ -236,39 +226,39 @@ public class TaskMgmt extends Composite {
 
     private void initTableColumnsOfTasks() {
         taskPager.addColumn(new TextColumn<Task>() {
-                    @Override
-                    public String getValue(Task object) {
-                        return object.getId();
-                    }
-                }, "ID");
+            @Override
+            public String getValue(Task object) {
+                return object.getId();
+            }
+        }, "ID");
 
         taskPager.addColumn(new TextColumn<Task>() {
-                    @Override
-                    public String getValue(Task object) {
-                        return object.getName();
-                    }
-                }, "Name");
+            @Override
+            public String getValue(Task object) {
+                return object.getName();
+            }
+        }, "Name");
 
         taskPager.addColumn(new TextColumn<Task>() {
-                    @Override
-                    public String getValue(Task object) {
-                        return object.getCategory();
-                    }
-                }, "Category");
+            @Override
+            public String getValue(Task object) {
+                return object.getCategory();
+            }
+        }, "Category");
 
         taskPager.addColumn(new TextColumn<Task>() {
-                    @Override
-                    public String getValue(Task object) {
-                        return String.valueOf(object.getPriority());
-                    }
-                }, "Priority");
+            @Override
+            public String getValue(Task object) {
+                return String.valueOf(object.getPriority());
+            }
+        }, "Priority");
 
         taskPager.addColumn(new TextColumn<Task>() {
-                    @Override
-                    public String getValue(Task object) {
-                        return object.getDescription();
-                    }
-                }, "Description");
+            @Override
+            public String getValue(Task object) {
+                return object.getDescription();
+            }
+        }, "Description");
 
         Column<Task, String> edit = new Column<Task, String>(
                 new ButtonCell()) {
@@ -360,15 +350,7 @@ public class TaskMgmt extends Composite {
 
     private void deleteTasks(List<String> selectedTaskIds) {
         ArrayList<String> tasks = new ArrayList<String>(); // TODO
-        // optimize
-        // > don't
-        // create
-        // this
-        // redundant
-        // object,
-        // use the
-        // Task IDs
-        // only
+        // optimize > don't create this redundant object, use the Task IDs only
         for (String taskId : selectedTaskIds) {
             tasks.add(taskId);
         }

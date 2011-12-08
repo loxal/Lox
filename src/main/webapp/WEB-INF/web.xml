@@ -13,8 +13,8 @@
     <display-name>Loxal: Lox</display-name>
     <description>A Google App Engine / GWT application</description>
     <welcome-file-list>
-        <!--<welcome-file>main.html</welcome-file>-->
         <welcome-file>loxal.lox.meta.Meta/main.html</welcome-file>
+        <welcome-file>main.html</welcome-file>
     </welcome-file-list>
 
     <servlet>
