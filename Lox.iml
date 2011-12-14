@@ -9,9 +9,6 @@
         <webroots>
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
         </webroots>
-        <sourceRoots>
-          <root url="file://$MODULE_DIR$/src/main/java" />
-        </sourceRoots>
       </configuration>
       <facet type="google-app-engine" name="Google App Engine">
         <configuration>
@@ -27,7 +24,7 @@
         <setting name="compilerParameters" value="-draftCompile -localWorkers 4" />
         <setting name="compilerMaxHeapSize" value="512" />
         <setting name="gwtScriptOutputStyle" value="OBF" />
-        <setting name="gwtSdkUrl" value="file://$MAVEN_REPOSITORY$/com/google/gwt/gwt-dev/2.4.0" />
+        <setting name="gwtSdkUrl" value="file://$MAVEN_REPOSITORY$/com/google/gwt/gwt-dev/2.4.0/" />
         <setting name="gwtSdkType" value="maven" />
         <setting name="webFacet" value="Web" />
       </configuration>
@@ -57,7 +54,7 @@
     <orderEntry type="library" name="Maven: com.google.appengine:appengine-api-1.0-sdk:1.6.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.google.appengine:appengine-testing:1.6.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.google.appengine:appengine-api-stubs:1.6.0" level="project" />
-    <orderEntry type="library" name="Maven: com.googlecode.objectify:objectify:3.1" level="project" />
+    <orderEntry type="library" name="Maven: com.google.appengine:appengine-jsr107cache:1.6.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.10" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.1" level="project" />
   </component>

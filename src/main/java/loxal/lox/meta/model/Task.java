@@ -6,27 +6,19 @@
 
 package loxal.lox.meta.model;
 
-import com.googlecode.objectify.Key;
-import com.googlecode.objectify.annotation.Entity;
 
-import javax.persistence.Embedded;
-import java.util.List;
+import javax.persistence.Entity;
 
 /**
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
 @Entity
-public class Task extends DatastoreObject { // "Problem"?
+public class Task { // "Problem"?
     private String name;
     private String description;
     private String userEmail;
     private Integer priority;
     private String category;
-    private Key<AppUser> owner;
-    //    private ListType listType;
-    @Embedded
-    private List<ListItem> items;
-
 
     public String getUserEmail() {
         return userEmail;

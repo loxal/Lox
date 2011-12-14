@@ -97,11 +97,9 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.googlecode.objectify</groupId>
-            <artifactId>objectify</artifactId>
-            <version>3.1</version>
-            <systemPath>${user.home}/my/opt/objectify/objectify-3.1.jar</systemPath>
-            <scope>system</scope>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-jsr107cache</artifactId>
+            <version>${gae.ver}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
