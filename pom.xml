@@ -41,44 +41,49 @@
             <version>${gwt.ver}</version>
             <scope>runtime</scope>
         </dependency>
-        <dependency>
-            <groupId>com.google.web.bindery</groupId>
-            <artifactId>requestfactory-apt</artifactId>
-            <version>${gwt.ver}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.google.web.bindery</groupId>
-            <artifactId>requestfactory-server</artifactId>
-            <version>${gwt.ver}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>eclipselink</artifactId>
-            <version>2.4.0-M8</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>javax.persistence</artifactId>
-            <version>2.0.3.v201010191057</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>4.2.0.Final</version>
-            <scope>runtime</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.validation</groupId>
-                    <artifactId>validation-api</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>com.google.web.bindery</groupId>-->
+        <!--<artifactId>requestfactory-apt</artifactId>-->
+        <!--<version>${gwt.ver}</version>-->
+        <!--<scope>provided</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>com.google.web.bindery</groupId>-->
+        <!--<artifactId>requestfactory-server</artifactId>-->
+        <!--<version>${gwt.ver}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.eclipse.persistence</groupId>-->
+        <!--<artifactId>eclipselink</artifactId>-->
+        <!--<version>2.4.0-M8</version>-->
+        <!--<scope>runtime</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.eclipse.persistence</groupId>-->
+        <!--<artifactId>javax.persistence</artifactId>-->
+        <!--<version>2.0.3.v201010191057</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.hibernate</groupId>-->
+        <!--<artifactId>hibernate-validator</artifactId>-->
+        <!--<version>4.2.0.Final</version>-->
+        <!--<scope>runtime</scope>-->
+        <!--<exclusions>-->
+        <!--<exclusion>-->
+        <!--<groupId>javax.validation</groupId>-->
+        <!--<artifactId>validation-api</artifactId>-->
+        <!--</exclusion>-->
+        <!--<exclusion>-->
+        <!--<groupId>org.slf4j</groupId>-->
+        <!--<artifactId>slf4j-api</artifactId>-->
+        <!--</exclusion>-->
+        <!--</exclusions>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.slf4j</groupId>-->
+        <!--<artifactId>slf4j-api</artifactId>-->
+        <!--<version>1.6.4</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-1.0-sdk</artifactId>
@@ -90,46 +95,63 @@
             <version>${gae.ver}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>com.google.appengine</groupId>
-            <artifactId>appengine-api-stubs</artifactId>
-            <version>${gae.ver}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.google.appengine</groupId>
-            <artifactId>appengine-jsr107cache</artifactId>
-            <version>${gae.ver}</version>
-        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>com.google.appengine</groupId>-->
+        <!--<artifactId>appengine-api-stubs</artifactId>-->
+        <!--<version>${gae.ver}</version>-->
+        <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>com.google.appengine</groupId>-->
+        <!--<artifactId>appengine-jsr107cache</artifactId>-->
+        <!--<version>${gae.ver}</version>-->
+        <!--</dependency>-->
 
-        <dependency>
-            <groupId>com.google.appengine.orm</groupId>
-            <artifactId>datanucleus-appengine</artifactId>
-            <version>2.0.0-RC2</version>
-            <systemPath>
-                ${user.home}/my/sdk/datanucleus-appengine/lib/opt/user/datanucleus/v2/datanucleus-appengine-2.0.0-RC2.jar
-            </systemPath>
-        </dependency>
-        <dependency>
-            <groupId>org.datanucleus</groupId>
-            <artifactId>datanucleus-core</artifactId>
-            <version>(2.9, )</version>
-        </dependency>
-        <dependency>
-            <groupId>org.datanucleus</groupId>
-            <artifactId>datanucleus-api-jpa</artifactId>
-            <version>(2.9, )</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.geronimo.specs</groupId>
-            <artifactId>geronimo-jpa_2.0_spec</artifactId>
-            <version>1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.jdo</groupId>
-            <artifactId>jdo-api</artifactId>
-            <version>[3.0, 4.0)</version>
-        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>com.google.appengine.orm</groupId>-->
+        <!--<artifactId>datanucleus-appengine</artifactId>-->
+        <!--<version>2.0.0-RC2</version>-->
+        <!--<systemPath>-->
+        <!--${user.home}/my/sdk/datanucleus-appengine/lib/opt/user/datanucleus/v2/datanucleus-appengine-2.0.0-RC2.jar-->
+        <!--</systemPath>-->
+        <!--<scope>system</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.apache.geronimo.specs</groupId>-->
+        <!--<artifactId>geronimo-jta_1.1_spec</artifactId>-->
+        <!--<version>1.1.1</version>-->
+        <!--<scope>provided</scope>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+        <!--<groupId>com.google.appengine.orm</groupId>-->
+        <!--<artifactId>datanucleus-appengine</artifactId>-->
+        <!--<version>1.0.10</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.datanucleus</groupId>-->
+        <!--<artifactId>datanucleus-core</artifactId>-->
+        <!--<version>3.0.4</version>-->
+        <!--&lt;!&ndash;<version>(2.9, )</version>&ndash;&gt;-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.datanucleus</groupId>-->
+        <!--<artifactId>datanucleus-api-jpa</artifactId>-->
+        <!--<version>3.0.1</version>-->
+        <!--&lt;!&ndash;<version>(2.9, )</version>&ndash;&gt;-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.apache.geronimo.specs</groupId>-->
+        <!--<artifactId>geronimo-jpa_2.0_spec</artifactId>-->
+        <!--&lt;!&ndash;<version>1.0</version>&ndash;&gt;-->
+        <!--<version>1.1</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>javax.jdo</groupId>-->
+        <!--<artifactId>jdo-api</artifactId>-->
+        <!--&lt;!&ndash;<version>[3.0, 4.0)</version>&ndash;&gt;-->
+        <!--<version>3.0</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>junit</groupId>
@@ -199,6 +221,15 @@
         <!--necessary for gwt-maven-plugin-->
         <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
         <plugins>
+            <!--<plugin>-->
+            <!--<groupId>org.apache.maven.plugins</groupId>-->
+            <!--<artifactId>maven-compiler-plugin</artifactId>-->
+            <!--<version>2.3.2</version>-->
+            <!--<configuration>-->
+            <!--<source>1.6</source>-->
+            <!--<target>1.6</target>-->
+            <!--</configuration>-->
+            <!--</plugin>-->
             <plugin>
                 <groupId>net.kindleit</groupId>
                 <artifactId>maven-gae-plugin</artifactId>
@@ -227,6 +258,8 @@
                 <version>3.0.1</version>
                 <configuration>
                     <verbose>true</verbose>
+                    <api>JPA</api>
+                    <!--<metadataDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</metadataDirectory>-->
                 </configuration>
                 <executions>
                     <execution>

@@ -6,7 +6,6 @@
 
 package loxal.lox.meta.model;
 
-
 import javax.persistence.Entity;
 
 /**

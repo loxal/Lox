@@ -1,0 +1,40 @@
+<!--
+  ~ Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+  ~ Use of this source code is governed by a BSD-style
+  ~ license that can be found in the LICENSE file.
+  -->
+
+<project name="Hello ORM" default="datanucleusenhance">
+    <path id="enhancer.classpath">
+        <fileset dir="/Users/alex/my/sdk/datanucleus-appengine/lib/opt/tools/datanucleus/v2">
+            <include name="**/datanucleus-enhancer*.jar"/>
+            <include name="**/asm-*.jar"/>
+        </fileset>
+    </path>
+
+    <path id="project.classpath">
+        <pathelement path="/Users/alex/my/project/Lox/target/Lox/WEB-INF/classes"/>
+        <fileset dir="/Users/alex/my/project/Lox/target/Lox/WEB-INF/lib">
+            <include name="**/*.jar"/>
+        </fileset>
+        <fileset dir="/Users/alex/my/sdk/gae.java/lib">
+            <include name="shared/**/*.jar"/>
+        </fileset>
+    </path>
+
+    <!-- This target should replace your existing datanucleusenhance target -->
+    <target name="datanucleusenhance" description="DataNucleus enhancement">
+        <taskdef name="datanucleusenhancer" classpathref="enhancer.classpath"
+                 classname="org.datanucleus.enhancer.tools.EnhancerTask"/>
+
+        <datanucleusenhancer failonerror="true">
+            <fileset dir="/Users/alex/my/project/Lox/target/Lox/WEB-INF/classes">
+                <include name="**/*.class"/>
+            </fileset>
+            <classpath>
+                <path refid="enhancer.classpath"/>
+                <path refid="project.classpath"/>
+            </classpath>
+        </datanucleusenhancer>
+    </target>
+</project>
