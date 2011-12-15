@@ -128,30 +128,30 @@
         <!--<artifactId>datanucleus-appengine</artifactId>-->
         <!--<version>1.0.10</version>-->
         <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>org.datanucleus</groupId>-->
-        <!--<artifactId>datanucleus-core</artifactId>-->
-        <!--<version>3.0.4</version>-->
-        <!--&lt;!&ndash;<version>(2.9, )</version>&ndash;&gt;-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.datanucleus</groupId>
+            <artifactId>datanucleus-core</artifactId>
+            <version>1.1.5</version>
+            <!--<version>(2.9, )</version>-->
+        </dependency>
         <!--<dependency>-->
         <!--<groupId>org.datanucleus</groupId>-->
         <!--<artifactId>datanucleus-api-jpa</artifactId>-->
         <!--<version>3.0.1</version>-->
         <!--&lt;!&ndash;<version>(2.9, )</version>&ndash;&gt;-->
         <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>org.apache.geronimo.specs</groupId>-->
-        <!--<artifactId>geronimo-jpa_2.0_spec</artifactId>-->
-        <!--&lt;!&ndash;<version>1.0</version>&ndash;&gt;-->
-        <!--<version>1.1</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>javax.jdo</groupId>-->
-        <!--<artifactId>jdo-api</artifactId>-->
-        <!--&lt;!&ndash;<version>[3.0, 4.0)</version>&ndash;&gt;-->
-        <!--<version>3.0</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-jpa_2.0_spec</artifactId>
+            <!--<version>1.0</version>-->
+            <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.jdo</groupId>
+            <artifactId>jdo-api</artifactId>
+            <!--<version>[3.0, 4.0)</version>-->
+            <version>3.0</version>
+        </dependency>
 
         <dependency>
             <groupId>junit</groupId>
