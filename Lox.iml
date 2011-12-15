@@ -73,24 +73,6 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../sdk/gae.java/lib/tools/orm/datanucleus-enhancer-1.1.4.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../sdk/gae.java/lib/user/orm/datanucleus-appengine-1.0.10.final.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
           <root url="jar://$MODULE_DIR$/../../sdk/gae.java/lib/user/orm/datanucleus-jpa-1.1.5.jar!/" />
         </CLASSES>
         <JAVADOC />
@@ -103,8 +85,11 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.google.gwt:gwt-servlet:2.4.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.appengine:appengine-api-1.0-sdk:1.6.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.google.appengine:appengine-testing:1.6.1" level="project" />
+    <orderEntry type="library" name="Maven: com.google.appengine.orm:datanucleus-appengine:1.0.10" level="project" />
     <orderEntry type="library" name="Maven: org.datanucleus:datanucleus-core:1.1.5" level="project" />
     <orderEntry type="library" name="Maven: javax.transaction:transaction-api:1.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.datanucleus:datanucleus-enhancer:3.0.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: asm:asm:3.3.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.geronimo.specs:geronimo-jpa_2.0_spec:1.1" level="project" />
     <orderEntry type="library" name="Maven: javax.jdo:jdo-api:3.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.10" level="project" />
