@@ -6,12 +6,10 @@
 
 package loxal.lox.meta.model;
 
-import javax.persistence.Entity;
-
 /**
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
-@Entity
+//@Entity // uncomment this to get it working
 public class Task { // "Problem"?
     private String name;
     private String description;
