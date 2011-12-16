@@ -3,27 +3,34 @@
  * Use of this source code is governed by a BSD-style
  * license that can be found in the LICENSE file.
  */
+
 package com.google.appengine.demos.helloorm;
 
-import javax.jdo.annotations.IdGeneratorStrategy;
-import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
-import javax.jdo.annotations.PrimaryKey;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  * @author Max Ross <maxr@google.com>
  */
-@PersistenceCapable(detachable = "true")
+@Entity
+//@PersistenceCapable(detachable = "true")
 public class Flight {
+    protected Flight() {
+    }
 
-    @PrimaryKey
-    @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+    //    @PrimaryKey
+//    @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+//    private Long id;
 
-    @Persistent
+    //    @Persistent
     private String orig;
 
-    @Persistent
+    //    @Persistent
     private String dest;
 
     public Flight(String orig, String dest) {

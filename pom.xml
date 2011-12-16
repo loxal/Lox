@@ -96,12 +96,12 @@
             <version>${gae.ver}</version>
             <scope>test</scope>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>com.google.appengine</groupId>-->
-        <!--<artifactId>appengine-api-stubs</artifactId>-->
-        <!--<version>${gae.ver}</version>-->
-        <!--<scope>test</scope>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-stubs</artifactId>
+            <version>${gae.ver}</version>
+            <scope>test</scope>
+        </dependency>
         <!--<dependency>-->
         <!--<groupId>com.google.appengine</groupId>-->
         <!--<artifactId>appengine-jsr107cache</artifactId>-->
@@ -133,7 +133,8 @@
         <dependency>
             <groupId>org.datanucleus</groupId>
             <artifactId>datanucleus-enhancer</artifactId>
-            <version>3.0.1</version>
+            <version>1.1.4</version>
+            <!--<version>3.0.1</version>-->
             <scope>provided</scope>
         </dependency>
         <dependency>
