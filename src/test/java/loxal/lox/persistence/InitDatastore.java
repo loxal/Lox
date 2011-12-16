@@ -16,6 +16,7 @@ import org.junit.Test;
 public class InitDatastore extends Common {
     private final LocalServiceTestHelper helper =
             new LocalServiceTestHelper(new LocalDatastoreServiceTestConfig());
+    final EntityController ec = new EntityController();
 
     @Before
     public void setUp() {
@@ -28,9 +29,18 @@ public class InitDatastore extends Common {
     }
 
     @Test
-    public void doTest() {
+    public void create() {
         final Flight flight = new Flight("origin", "destination");
-        final EntityController ec = new EntityController();
         ec.create(flight);
+    }
+
+    @Test
+    public void retrieve() {
+        System.out.println("isEmpty = " + ec.retrieve(Flight.class).isEmpty());
+    }
+
+    @Test
+    public void rebelFind() {
+        System.out.println("flight#1 = " + ec.find(Flight.class, 1));
     }
 }

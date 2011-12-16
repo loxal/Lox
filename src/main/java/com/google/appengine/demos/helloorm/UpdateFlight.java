@@ -3,6 +3,7 @@
  * Use of this source code is governed by a BSD-style
  * license that can be found in the LICENSE file.
  */
+
 package com.google.appengine.demos.helloorm;
 
 import javax.persistence.EntityManager;
@@ -47,7 +48,7 @@ public class UpdateFlight extends HttpServlet {
 //    PersistenceManager pm = PMF.get().getPersistenceManager();
 //    try {
 //      Flight f = pm.getObjectById(Flight.class, key);
-//      f.setOrig(orig);
+//      f.setOrigin(orig);
 //      f.setDest(dest);
 //    } finally {
 //      pm.close();
@@ -58,8 +59,8 @@ public class UpdateFlight extends HttpServlet {
         EntityManager em = EMF.get().createEntityManager();
         try {
             Flight f = em.find(Flight.class, key);
-            f.setOrig(orig);
-            f.setDest(dest);
+            f.setOrigin(orig);
+            f.setDestination(dest);
         } finally {
             em.close();
         }

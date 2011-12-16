@@ -6,9 +6,12 @@
 
 package loxal.lox.persistence;
 
-import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
+import com.google.appengine.demos.helloorm.Flight;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 import java.util.List;
 
 public class EntityController {
@@ -31,14 +34,20 @@ public class EntityController {
     }
 
     public void create(final Object entity) {
-        final EntityManager em = getEntityManager();
+//        final EntityManager em = getEntityManager();
+//        final EntityManager em = DatastoreSingleton.getSingleton().getEntityManager();
+//        final EntityManager em = DatastoreSingleton.getEmf().createEntityManager();
+        final EntityManager em = DatastoreSingleton.getSingleton().getEntityManager();
+//        DatastoreSingleton ds = new DatastoreSingleton();
         try {
             final EntityTransaction tx = em.getTransaction();
             try {
                 tx.begin();
+                em.persist(entity);
                 em.merge(entity);
+                em.flush();
                 tx.commit();
-                em.clear();
+//                em.clear();
             } finally {
                 rollbackIfStillActive(tx);
             }
@@ -48,16 +57,20 @@ public class EntityController {
     }
 
     public List<?> retrieve(final Class<?> cls) {
-        final EntityManager em = getEntityManager();
+//        final EntityManager em = getEntityManager();
+//        final EntityManager em = DatastoreSingleton.getSingleton().getEntityManager();
+        final EntityManager em = DatastoreSingleton.getEmf().createEntityManager();
         try {
             final EntityTransaction tx = em.getTransaction();
             try {
                 tx.begin();
-                final CriteriaBuilder cb = em.getCriteriaBuilder();
-                final CriteriaQuery<?> cq = cb.createQuery(cls);
-                final TypedQuery<?> q = em.createQuery(cq);
-                final List<?> entities = q.getResultList();
+//                final CriteriaBuilder cb = em.getCriteriaBuilder();
+//                final CriteriaQuery<?> cq = cb.createQuery(cls);
+//                final TypedQuery<?> q = em.createQuery(cq);
+//                final List<?> entities = q.getResultList();
+                List<Flight> entities = em.createQuery("select f from Flight f").getResultList();
                 tx.commit();
+                System.out.println("entities = " + entities.size());
 
                 return entities;
             } finally {
@@ -68,8 +81,9 @@ public class EntityController {
         }
     }
 
-    public Object find(final Class<?> cls, final int id) {
-        final EntityManager em = getEntityManager();
+    public Object find(final Class<?> cls, final long id) {
+        final EntityManager em = DatastoreSingleton.getEmf().createEntityManager();
+//        final EntityManager em = getEntityManager();
         try {
             final EntityTransaction tx = em.getTransaction();
             try {

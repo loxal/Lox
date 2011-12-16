@@ -3,6 +3,7 @@
  * Use of this source code is governed by a BSD-style
  * license that can be found in the LICENSE file.
  */
+
 package com.google.appengine.demos.helloorm;
 
 import javax.persistence.EntityManager;
@@ -118,10 +119,10 @@ public class GetFlights extends HttpServlet {
             resp.getWriter().println("<a href=\"getFlight?key=" + f.getId() + "\"> " + index++ + "</a>");
             resp.getWriter().println("</td>");
             resp.getWriter().println("<td>");
-            resp.getWriter().println(f.getOrig());
+            resp.getWriter().println(f.getOrigin());
             resp.getWriter().println("</td>");
             resp.getWriter().println("<td>");
-            resp.getWriter().println(f.getDest());
+            resp.getWriter().println(f.getDestination());
             resp.getWriter().println("</td>");
             resp.getWriter().println("</tr>");
         }

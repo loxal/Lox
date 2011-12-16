@@ -11,50 +11,41 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-/**
- * @author Max Ross <maxr@google.com>
- */
 @Entity
-//@PersistenceCapable(detachable = "true")
 public class Flight {
     protected Flight() {
     }
 
-    //    @PrimaryKey
-//    @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-//    private Long id;
 
-    //    @Persistent
-    private String orig;
+    private String origin;
 
-    //    @Persistent
-    private String dest;
+    private String destination;
 
-    public Flight(String orig, String dest) {
-        this.orig = orig;
-        this.dest = dest;
+    public Flight(String origin, String destination) {
+        this.origin = origin;
+        this.destination = destination;
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getOrig() {
-        return orig;
+    public String getOrigin() {
+        return origin;
     }
 
-    public String getDest() {
-        return dest;
+    public String getDestination() {
+        return destination;
     }
 
-    public void setOrig(String orig) {
-        this.orig = orig;
+    public void setOrigin(String origin) {
+        this.origin = origin;
     }
 
-    public void setDest(String dest) {
-        this.dest = dest;
+    public void setDestination(String destination) {
+        this.destination = destination;
     }
 }

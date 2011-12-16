@@ -3,6 +3,7 @@
  * Use of this source code is governed by a BSD-style
  * license that can be found in the LICENSE file.
  */
+
 package com.google.appengine.demos.helloorm;
 
 import javax.persistence.EntityManager;
@@ -34,8 +35,8 @@ public class GetFlight extends HttpServlet {
         resp.getWriter().println("<input name=\"key\" type=\"hidden\" value=\"" + key + "\"/>");
         resp.getWriter().println("<table>");
         resp.getWriter().println("<tr>");
-        resp.getWriter().println("<th>Origin</th><td><input name=\"orig\" type=\"text\" value=\"" + f.getOrig() + "\"/></td>");
-        resp.getWriter().println("<th>Destination</th><td><input name=\"dest\" type=\"text\" value=\"" + f.getDest() + "\"/></td>");
+        resp.getWriter().println("<th>Origin</th><td><input name=\"orig\" type=\"text\" value=\"" + f.getOrigin() + "\"/></td>");
+        resp.getWriter().println("<th>Destination</th><td><input name=\"dest\" type=\"text\" value=\"" + f.getDestination() + "\"/></td>");
         resp.getWriter().println("</tr>");
         resp.getWriter().println("<tr><td><input type=\"submit\" value=\"Update Flight\"></td></tr>");
         resp.getWriter().println("</table>");
