@@ -25,7 +25,7 @@ public class InitDatastore extends Common {
 
     @After
     public void tearDown() {
-        helper.tearDown();
+//        helper.tearDown();
     }
 
     @Test
@@ -36,11 +36,11 @@ public class InitDatastore extends Common {
 
     @Test
     public void retrieve() {
-        System.out.println("isEmpty = " + ec.retrieve(Flight.class).isEmpty());
+        System.err.println("isEmpty = " + ec.retrieve(Flight.class).isEmpty());
     }
 
     @Test
     public void rebelFind() {
-        System.out.println("flight#1 = " + ec.find(Flight.class, 1));
+        System.out.println("flight#1 = " + ec.find(Flight.class, 1L));
     }
 }

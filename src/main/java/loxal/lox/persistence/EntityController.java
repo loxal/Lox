@@ -6,6 +6,7 @@
 
 package loxal.lox.persistence;
 
+import com.google.appengine.demos.helloorm.EMF;
 import com.google.appengine.demos.helloorm.Flight;
 
 import javax.persistence.EntityManager;
@@ -37,20 +38,21 @@ public class EntityController {
 //        final EntityManager em = getEntityManager();
 //        final EntityManager em = DatastoreSingleton.getSingleton().getEntityManager();
 //        final EntityManager em = DatastoreSingleton.getEmf().createEntityManager();
-        final EntityManager em = DatastoreSingleton.getSingleton().getEntityManager();
+//        final EntityManager em = DatastoreSingleton.getSingleton().getEntityManager();
 //        DatastoreSingleton ds = new DatastoreSingleton();
+        EntityManager em = EMF.get().createEntityManager();
         try {
-            final EntityTransaction tx = em.getTransaction();
-            try {
-                tx.begin();
-                em.persist(entity);
-                em.merge(entity);
-                em.flush();
-                tx.commit();
+//            final EntityTransaction tx = em.getTransaction();
+//            try {
+//                tx.begin();
+            em.persist(entity);
+//                em.merge(entity);
+//                em.flush();
+//                tx.commit();
 //                em.clear();
-            } finally {
-                rollbackIfStillActive(tx);
-            }
+//            } finally {
+//                rollbackIfStillActive(tx);
+//            }
         } finally {
             em.close();
         }
@@ -59,41 +61,46 @@ public class EntityController {
     public List<?> retrieve(final Class<?> cls) {
 //        final EntityManager em = getEntityManager();
 //        final EntityManager em = DatastoreSingleton.getSingleton().getEntityManager();
-        final EntityManager em = DatastoreSingleton.getEmf().createEntityManager();
+        EntityManager em = EMF.get().createEntityManager();
+//        final EntityManager em = DatastoreSingleton.getEmf().createEntityManager();
         try {
-            final EntityTransaction tx = em.getTransaction();
-            try {
-                tx.begin();
+//            final EntityTransaction tx = em.getTransaction();
+//            try {
+//                tx.begin();
 //                final CriteriaBuilder cb = em.getCriteriaBuilder();
 //                final CriteriaQuery<?> cq = cb.createQuery(cls);
 //                final TypedQuery<?> q = em.createQuery(cq);
 //                final List<?> entities = q.getResultList();
-                List<Flight> entities = em.createQuery("select f from Flight f").getResultList();
-                tx.commit();
-                System.out.println("entities = " + entities.size());
+            final String DEFAULT_QUERY = "select f from " + Flight.class.getName() + " as f";
+            List<Flight> entities = em.createQuery(DEFAULT_QUERY).getResultList();
+//                List<Flight> entities = em.createQuery("select f from Flight f").getResultList();
+//                tx.commit();
+            System.out.println("entitiesSIZE = " + entities.size());
 
-                return entities;
-            } finally {
-                rollbackIfStillActive(tx);
-            }
+            return entities;
+//            } finally {
+//                rollbackIfStillActive(tx);
+//            }
         } finally {
             em.close();
         }
     }
 
-    public Object find(final Class<?> cls, final long id) {
-        final EntityManager em = DatastoreSingleton.getEmf().createEntityManager();
+    public Object find(final Class<?> cls, final Long id) {
+        EntityManager em = EMF.get().createEntityManager();
+//        final EntityManager em = DatastoreSingleton.getEmf().createEntityManager();
 //        final EntityManager em = getEntityManager();
         try {
-            final EntityTransaction tx = em.getTransaction();
-            try {
-                tx.begin();
-                final Object entity = em.find(cls, id);
-                tx.commit();
-                return entity;
-            } finally {
-                rollbackIfStillActive(tx);
-            }
+//            final EntityTransaction tx = em.getTransaction();
+//            try {
+//                tx.begin();
+//                final Object entity = em.find(cls, id);
+//                tx.commit();
+//                return entity;
+            return em.find(cls, id);
+//            } finally {
+//                rollbackIfStillActive(tx);
+//            }
         } finally {
             em.close();
         }
