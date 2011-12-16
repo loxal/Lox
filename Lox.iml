@@ -61,24 +61,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../sdk/gae.java/lib/tools/orm/asm-3.1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../sdk/gae.java/lib/user/orm/datanucleus-jpa-1.1.5.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.gwt:gwt-user:2.4.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.validation:validation-api:1.0.0.GA" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.validation:validation-api:sources:1.0.0.GA" level="project" />
@@ -90,6 +72,7 @@
     <orderEntry type="library" name="Maven: javax.transaction:transaction-api:1.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.datanucleus:datanucleus-enhancer:3.0.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: asm:asm:3.3.1" level="project" />
+    <orderEntry type="library" name="Maven: org.datanucleus:datanucleus-api-jpa:1.1.5" level="project" />
     <orderEntry type="library" name="Maven: org.apache.geronimo.specs:geronimo-jpa_2.0_spec:1.1" level="project" />
     <orderEntry type="library" name="Maven: javax.jdo:jdo-api:3.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.10" level="project" />

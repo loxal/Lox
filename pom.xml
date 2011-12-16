@@ -140,16 +140,17 @@
             <version>3.0.1</version>
             <scope>provided</scope>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>org.datanucleus</groupId>-->
-        <!--<artifactId>datanucleus-api-jpa</artifactId>-->
-        <!--<version>3.0.0-release</version>-->
-        <!--&lt;!&ndash;<version>(2.9, )</version>&ndash;&gt;-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.datanucleus</groupId>
+            <artifactId>datanucleus-api-jpa</artifactId>
+            <version>1.1.5</version>
+            <!--&lt;!&ndash;<version>(2.9, )</version>&ndash;&gt;-->
+            <systemPath>${user.home}/my/sdk/gae.java/lib/user/orm/datanucleus-jpa-1.1.5.jar</systemPath>
+            <scope>system</scope>
+        </dependency>
         <dependency>
             <groupId>org.apache.geronimo.specs</groupId>
             <artifactId>geronimo-jpa_2.0_spec</artifactId>
-            <!--<version>1.0</version>-->
             <version>1.1</version>
         </dependency>
         <dependency>
