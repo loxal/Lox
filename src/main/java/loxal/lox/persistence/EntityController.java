@@ -34,7 +34,7 @@ public class EntityController {
         return null;
     }
 
-    public void create(final Object entity) {
+    public void create(Flight entity) {
 //        final EntityManager em = getEntityManager();
 //        final EntityManager em = DatastoreSingleton.getSingleton().getEntityManager();
 //        final EntityManager em = DatastoreSingleton.getEmf().createEntityManager();
@@ -58,7 +58,7 @@ public class EntityController {
         }
     }
 
-    public List<?> retrieve(final Class<?> cls) {
+    public List<Flight> retrieve(final Class<?> cls) {
 //        final EntityManager em = getEntityManager();
 //        final EntityManager em = DatastoreSingleton.getSingleton().getEntityManager();
         EntityManager em = EMF.get().createEntityManager();
@@ -86,7 +86,7 @@ public class EntityController {
         }
     }
 
-    public Object find(final Class<?> cls, final Long id) {
+    public Flight find(final Class<?> cls, final long id) {
         EntityManager em = EMF.get().createEntityManager();
 //        final EntityManager em = DatastoreSingleton.getEmf().createEntityManager();
 //        final EntityManager em = getEntityManager();
@@ -97,7 +97,8 @@ public class EntityController {
 //                final Object entity = em.find(cls, id);
 //                tx.commit();
 //                return entity;
-            return em.find(cls, id);
+            return em.find(Flight.class, id);
+//            return em.find(cls, id);
 //            } finally {
 //                rollbackIfStillActive(tx);
 //            }

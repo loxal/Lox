@@ -6,6 +6,10 @@
 
 package loxal.lox.persistence;
 
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.Key;
 import com.google.appengine.demos.helloorm.Flight;
 import com.google.appengine.tools.development.testing.LocalDatastoreServiceTestConfig;
 import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
@@ -16,7 +20,7 @@ import org.junit.Test;
 public class InitDatastore extends Common {
     private final LocalServiceTestHelper helper =
             new LocalServiceTestHelper(new LocalDatastoreServiceTestConfig());
-    final EntityController ec = new EntityController();
+
 
     @Before
     public void setUp() {
@@ -25,22 +29,52 @@ public class InitDatastore extends Common {
 
     @After
     public void tearDown() {
-//        helper.tearDown();
+        helper.tearDown();
     }
 
     @Test
     public void create() {
+        final EntityController ec = new EntityController();
+        final Flight flight = new Flight("origin", "destination");
+        ec.create(flight);
+    }
+
+    @Test
+    public void create1() {
+        final EntityController ec = new EntityController();
         final Flight flight = new Flight("origin", "destination");
         ec.create(flight);
     }
 
     @Test
     public void retrieve() {
+        final EntityController ec = new EntityController();
         System.err.println("isEmpty = " + ec.retrieve(Flight.class).isEmpty());
     }
 
     @Test
-    public void rebelFind() {
-        System.out.println("flight#1 = " + ec.find(Flight.class, 1L));
+    public void zFind() {
+        final EntityController ec = new EntityController();
+        System.out.println("flight###1 = " + ec.find(Flight.class, 1));
+    }
+
+    // run this test twice to prove we're not leaking any state across tests
+    private void doTest() {
+        DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
+//        assertEquals(0, ds.prepare(new Query("yam")).countEntities(withLimit(10)));
+        ds.put(new Entity("yam"));
+        Key k = ds.put(new Entity("yam"));
+        System.out.println("k = " + k);
+//        assertEquals(2, ds.prepare(new Query("yam")).countEntities(withLimit(10)));
+    }
+
+    @Test
+    public void testInsert1() {
+        doTest();
+    }
+
+    @Test
+    public void testInsert2() {
+        doTest();
     }
 }
