@@ -9,16 +9,12 @@
         <webroots>
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
         </webroots>
-        <sourceRoots>
-          <root url="file://$MODULE_DIR$/src/main/java" />
-          <root url="file://$MODULE_DIR$/src/main/resources" />
-        </sourceRoots>
       </configuration>
       <facet type="google-app-engine" name="Google App Engine">
         <configuration>
           <password>dfc7dfc1df98dfc9dfccdf9ddfc8dfe8df99dff9dfe0df9f</password>
           <files-to-enhance>
-            <file path="$MODULE_DIR$/src/main/java/com" />
+            <file path="$MODULE_DIR$/src/main/java/com/google/appengine/demos/helloorm/Flight.java" />
           </files-to-enhance>
           <persistence-api>JPA</persistence-api>
           <run-enhancer-on-make>true</run-enhancer-on-make>
@@ -67,13 +63,14 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.google.gwt:gwt-servlet:2.4.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.appengine:appengine-api-1.0-sdk:1.6.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.google.appengine:appengine-testing:1.6.1" level="project" />
-    <orderEntry type="library" name="Maven: com.google.appengine.orm:datanucleus-appengine:1.0.10" level="project" />
-    <orderEntry type="library" name="Maven: org.datanucleus:datanucleus-core:1.1.5" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.google.appengine.orm:datanucleus-appengine:1.0.10" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.datanucleus:datanucleus-core:1.1.5" level="project" />
     <orderEntry type="library" name="Maven: javax.transaction:transaction-api:1.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.datanucleus:datanucleus-enhancer:3.0.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: asm:asm:3.3.1" level="project" />
-    <orderEntry type="library" name="Maven: org.datanucleus:datanucleus-api-jpa:1.1.5" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.geronimo.specs:geronimo-jpa_2.0_spec:1.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.datanucleus:datanucleus-jpa:1.1.5" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.geronimo.specs:geronimo-jpa_3.0_spec:1.1.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.geronimo.specs:geronimo-jpa_2.0_spec:1.1" level="project" />
     <orderEntry type="library" name="Maven: javax.jdo:jdo-api:3.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.10" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.1" level="project" />
