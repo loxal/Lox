@@ -40,12 +40,12 @@
     <!--</resource-files> -->
 
     <system-properties>
-        <property name="helloorm.persistence.standard" value="JPA"/>
+        <property name="loxal.persistence.standard" value="JPA"/>
 
         <property name="admin.name" value="Alexander Orlov"/>
         <property name="admin.mail" value="alexander.orlov@loxal.net"/>
         <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
-        <!--<property name="appengine.orm.disable.duplicate.emf.exception" value="false"/>-->
+        <property name="appengine.orm.disable.duplicate.emf.exception" value="false"/>
     </system-properties>
 
     <env-variables>
