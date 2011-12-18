@@ -6,16 +6,16 @@
 
 package loxal.lox.persistence;
 
-import com.google.appengine.api.datastore.DatastoreService;
-import com.google.appengine.api.datastore.DatastoreServiceFactory;
-import com.google.appengine.api.datastore.Entity;
-import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.*;
 import com.google.appengine.demos.helloorm.Flight;
 import com.google.appengine.tools.development.testing.LocalDatastoreServiceTestConfig;
 import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import static com.google.appengine.api.datastore.FetchOptions.Builder.withLimit;
+import static junit.framework.Assert.assertEquals;
 
 public class InitDatastore extends Common {
     private final LocalServiceTestHelper helper =
@@ -58,14 +58,13 @@ public class InitDatastore extends Common {
         System.out.println("flight###1 = " + ec.find(Flight.class, 1));
     }
 
-    // run this test twice to prove we're not leaking any state across tests
     private void doTest() {
         DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
-//        assertEquals(0, ds.prepare(new Query("yam")).countEntities(withLimit(10)));
+        assertEquals(0, ds.prepare(new Query("yam")).countEntities(withLimit(10)));
         ds.put(new Entity("yam"));
         Key k = ds.put(new Entity("yam"));
         System.out.println("k = " + k);
-//        assertEquals(2, ds.prepare(new Query("yam")).countEntities(withLimit(10)));
+        assertEquals(2, ds.prepare(new Query("yam")).countEntities(withLimit(10)));
     }
 
     @Test
