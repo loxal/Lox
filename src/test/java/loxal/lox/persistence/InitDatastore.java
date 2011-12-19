@@ -18,9 +18,7 @@ import static com.google.appengine.api.datastore.FetchOptions.Builder.withLimit;
 import static junit.framework.Assert.assertEquals;
 
 public class InitDatastore extends Common {
-    private final LocalServiceTestHelper helper =
-            new LocalServiceTestHelper(new LocalDatastoreServiceTestConfig());
-
+    private final LocalServiceTestHelper helper = new LocalServiceTestHelper(new LocalDatastoreServiceTestConfig());
 
     @Before
     public void setUp() {
