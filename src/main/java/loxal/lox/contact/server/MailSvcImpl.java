@@ -19,32 +19,30 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.io.UnsupportedEncodingException;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
 public class MailSvcImpl extends RemoteServiceServlet implements MailSvc {
-    public void sendMail(MailMsg mailMsg) {
-        MimeMessage message = new MimeMessage(
-                Session.getDefaultInstance(
-                        new Properties()));
+    public void sendMail(final MailMsg mailMsg) {
+        final MimeMessage message = new MimeMessage(Session.getDefaultInstance(new Properties()));
         try {
-            message.setFrom(
-                    new InternetAddress(
-                            System.getProperty("admin.mail"), mailMsg.getSenderName()));
+            message.setFrom(new InternetAddress(System.getProperty("admin.mail"), mailMsg.getSenderName()));
             message.addRecipient(
                     Message.RecipientType.TO,
-                    new InternetAddress(System.getProperty("admin.mail"),
-                            System.getProperty("admin.name")));
+                    new InternetAddress(System.getProperty("admin.mail"), System.getProperty("admin.name"))
+            );
             message.setSubject(mailMsg.getSubject().isEmpty() ? "[No Subject]" : mailMsg.getSubject()); // must not be empty
             message.setText("From: " + mailMsg.getSenderAddress() + "\n\n" + mailMsg.getMessage());
             Transport.send(message);
         } catch (AddressException e) {
-            System.err.println(e);
+            Logger.getAnonymousLogger().log(Level.SEVERE, e.getMessage());
         } catch (MessagingException e) {
-            System.err.println(e);
+            Logger.getAnonymousLogger().log(Level.SEVERE, e.getMessage());
         } catch (UnsupportedEncodingException e) {
-            System.err.println(e);
+            Logger.getAnonymousLogger().log(Level.SEVERE, e.getMessage());
         }
     }
 }
