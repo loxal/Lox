@@ -58,7 +58,7 @@ public class EntityController {
         }
     }
 
-    public List<Flight> retrieve(final Class<?> cls) {
+    public List<Flight> retrieve() {
 //        final EntityManager em = getEntityManager();
 //        final EntityManager em = DatastoreSingleton.getSingleton().getEntityManager();
         EntityManager em = EMF.get().createEntityManager();
@@ -71,8 +71,9 @@ public class EntityController {
 //                final CriteriaQuery<?> cq = cb.createQuery(cls);
 //                final TypedQuery<?> q = em.createQuery(cq);
 //                final List<?> entities = q.getResultList();
-            final String DEFAULT_QUERY = "select f from " + Flight.class.getName() + " as f";
-            List<Flight> entities = em.createQuery(DEFAULT_QUERY).getResultList();
+            final String DEFAULT_QUERY = "SELECT f FROM Flight f where f.destination <> 'bsfdfest'";
+//            final String DEFAULT_QUERY = "select f from " + Flight.class.getName() + " as f";
+            List<Flight> entities = em.createQuery(DEFAULT_QUERY, Flight.class).getResultList();
 //                List<Flight> entities = em.createQuery("select f from Flight f").getResultList();
 //                tx.commit();
             System.out.println("entitiesSIZE = " + entities.size());
