@@ -55,7 +55,6 @@ public abstract class PlusBase {
                 .create(new Receiver<GoogleApiRequestTransport>() {
                     @Override
                     public void onSuccess(GoogleApiRequestTransport transport) {
-                        println("Ok");
                         Plus plus = createPlus();
                         plus.initialize(new SimpleEventBus(), transport);
                         getMe(plus);
@@ -64,6 +63,7 @@ public abstract class PlusBase {
                     @Override
                     public void onFailure(ServerFailure error) {
                         println(error.getMessage());
+                        println(error.getStackTraceString());
                     }
                 });
     }
