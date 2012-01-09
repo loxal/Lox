@@ -52,12 +52,28 @@
             <scope>runtime</scope>
         </dependency>
         <dependency>
-            <groupId>com.google.gwt</groupId>
-            <artifactId>gwt-servlet</artifactId>
+            <groupId>com.google.api</groupId>
+            <artifactId>tasks</artifactId>
             <version>v1-0.2.alpha</version>
             <!--<scope>runtime</scope>-->
             <scope>system</scope>
             <systemPath>${user.home}/my/sdk/gwt-google-apis/gwt-tasks-v1-0.2-alpha.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.google.api</groupId>
+            <artifactId>urlshortener</artifactId>
+            <version>v1-0.2.alpha</version>
+            <!--<scope>runtime</scope>-->
+            <scope>system</scope>
+            <systemPath>${user.home}/my/sdk/gwt-google-apis/gwt-urlshortener-v1-0.2-alpha.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.google.api</groupId>
+            <artifactId>plus</artifactId>
+            <version>v1-0.2.alpha</version>
+            <!--<scope>runtime</scope>-->
+            <scope>system</scope>
+            <systemPath>${user.home}/my/sdk/gwt-google-apis/gwt-plus-v1-0.2-alpha.jar</systemPath>
         </dependency>
         <!--<dependency>-->
         <!--<groupId>com.google.web.bindery</groupId>-->

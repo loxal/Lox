@@ -27,6 +27,8 @@
     <inherits name="com.google.gwt.uibinder.UiBinder"/>
     <inherits name="com.google.web.bindery.requestfactory.RequestFactory"/>
     <inherits name="com.google.api.gwt.services.Tasks"/>
+    <inherits name="com.google.api.gwt.services.Urlshortener"/>
+    <inherits name="com.google.api.gwt.services.Plus"/>
 
     <inherits name="com.google.gwt.user.theme.dark.Dark"/>
 
