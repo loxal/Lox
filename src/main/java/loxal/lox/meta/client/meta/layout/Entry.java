@@ -31,36 +31,14 @@ public class Entry implements EntryPoint {
 
     private Binder binder = GWT.create(Binder.class);
     private I18n i18n = GWT.create(I18n.class);
-//    private AuthInfoSvcAsync authInfoSvcAsync = GWT.create(AuthInfoSvc.class);
 
     @UiField
     TaskMgmt taskMgmt;
-    //    @UiField
-//    Footer footer;
-//    @UiField
-//    Header header;
-//    @UiField
-//    TabLayoutPanel taskTab;
 
     @Override
     public void onModuleLoad() {
         Widget app = binder.createAndBindUi(this);
         RootLayoutPanel.get().add(app);
         Window.setTitle(i18n.appTitle());
-
-//        authInfoSvcAsync.getAuthInfo(GWT.getHostPageBaseURL(),
-//                new AsyncCallback<AuthInfo>() {
-//                    @Override
-//                    public void onFailure(Throwable caught) {
-//                    }
-//
-//                    @Override
-//                    public void onSuccess(AuthInfo authInfo) {
-//                        header.setAuthenticationInfo(authInfo);
-//                        header.authentication();
-//                        taskTab.selectTab(0);
-//                    }
-//                }
-//        );
     }
 }

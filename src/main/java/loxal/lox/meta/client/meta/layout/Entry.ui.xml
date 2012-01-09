@@ -24,24 +24,8 @@
              ui:generateLocales="default">
 
     <g:DockLayoutPanel unit="EM">
-        <!--<g:north size="7.9">-->
-        <!--<meta.layout:Header ui:field="header"/>-->
-        <!--</g:north>-->
-
         <g:center>
-            <!--<g:TabLayoutPanel barHeight="30" ui:field="taskTab">-->
-            <!--&lt;!&ndash;<g:TabLayoutPanel barHeight="25" ui:field="taskTab">&ndash;&gt;-->
-            <!--<g:tab>-->
-            <!--<g:header>-->
-            <!--<ui:msg>Task Management</ui:msg>-->
-            <!--</g:header>-->
             <task.tasksolver:TaskMgmt ui:field="taskMgmt"/>
-            <!--</g:tab>-->
-            <!--</g:TabLayoutPanel>-->
         </g:center>
-
-        <!--<g:south size="2">-->
-        <!--<meta.layout:Footer ui:field="footer"/>-->
-        <!--</g:south>-->
     </g:DockLayoutPanel>
 </ui:UiBinder>

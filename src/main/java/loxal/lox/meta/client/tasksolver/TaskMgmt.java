@@ -20,27 +20,23 @@ import com.google.gwt.cell.client.ButtonCell;
 import com.google.gwt.cell.client.FieldUpdater;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.logical.shared.SelectionEvent;
-import com.google.gwt.event.logical.shared.SelectionHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.cellview.client.*;
-import com.google.gwt.user.client.Command;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.*;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.view.client.ListDataProvider;
 import com.google.gwt.view.client.MultiSelectionModel;
 import com.google.gwt.view.client.SelectionModel;
 import loxal.lox.meta.client.dto.Task;
-import loxal.lox.meta.client.meta.layout.Header;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Task UI logic
- */
 public class TaskMgmt extends Composite {
     private TaskSvcAsync taskSvcAsync = GWT.create(TaskSvc.class);
 
@@ -48,47 +44,11 @@ public class TaskMgmt extends Composite {
     }
 
     @UiField
-    TextBox name;
-    @UiField
-    TextArea description;
-    @UiField
-    Button createTask;
-    @UiField
-    TextBox category;
-    @UiField
-    TextBox priority;
-    @UiField
-    TabLayoutPanel tabPanel;
-    @UiField
     CellTable<Task> taskPager;
     @UiField
     VerticalPanel control;
     @UiField
-    MenuBar menu;
-    @UiField
-    MenuItem taskItem;
-    @UiField
-    MenuItem deleteTask;
-    @UiField
-    VerticalPanel processTaskPanel;
-    @UiField
-    MenuItem closeTask;
-    @UiField
-    TextBox nameUpdate;
-    @UiField
-    TextBox categoryUpdate;
-    @UiField
-    TextBox priorityUpdate;
-    @UiField
-    TextArea descriptionUpdate;
-    @UiField
-    Button updateTask;
-    @UiField
-    Label taskId;
-    @UiField
     Button showAllTasks;
-    @UiField
-    MenuItem placeholder;
     @UiField
     PageSizePager taskPageSizePager;
     @UiField
@@ -98,47 +58,8 @@ public class TaskMgmt extends Composite {
         Binder binder = GWT.create(Binder.class);
         initWidget(binder.createAndBindUi(this));
 
-        createTask.setAccessKey('C');
-        updateTask.setAccessKey('U');
-        tabPanel.selectTab(0);
-
         getTasks();
 
-        closeTask.setCommand(new Command() {
-            @Override
-            public void execute() {
-                tabPanel.selectTab(1);
-            }
-        });
-
-        tabPanel.addSelectionHandler(new SelectionHandler<Integer>() {
-            @Override
-            public void onSelection(
-                    SelectionEvent<Integer> integerSelectionEvent) {
-            }
-        });
-
-    }
-
-    private void loadTask(String taskId) {
-        taskSvcAsync.getTask(taskId, new AsyncCallback<Task>() {
-            @Override
-            public void onFailure(Throwable caught) {
-            }
-
-            @Override
-            public void onSuccess(Task task) {
-                displayTask(task);
-            }
-        });
-    }
-
-    private void displayTask(Task task) {
-        nameUpdate.setText(task.getName());
-        categoryUpdate.setText(task.getCategory());
-        priorityUpdate.setText(String.valueOf(task.getPriority()));
-        descriptionUpdate.setText(task.getDescription());
-        taskId.setText(task.getId());
     }
 
     private void getTasks() {
@@ -150,62 +71,6 @@ public class TaskMgmt extends Composite {
             @Override
             public void onSuccess(ArrayList<Task> tasks) {
                 displayTasks(tasks);
-
-//                { // SuggestBox / Oracle
-//                    MultiWordSuggestOracle oracle = new MultiWordSuggestOracle();
-//                    for (Task task : tasks) {
-//                        oracle.add(task.getName());
-//                    }
-//
-//                    tabPanel.remove(3);
-//                    TextBox searchBox = new TextBox();
-//                    final SuggestBox search = new SuggestBox(oracle, searchBox); // UiBinder variant didn't work; also using the PROVIDED attribute
-//
-//                    searchBox.addFocusHandler(new FocusHandler() {
-//                        @Override
-//                        public void onFocus(FocusEvent focusEvent) {
-//                            search.setText("");
-//                        }
-//                    });
-//
-//                    searchBox.addBlurHandler(new BlurHandler() {
-//                        @Override
-//                        public void onBlur(BlurEvent blurEvent) {
-//                            search.setText("Search For a Task Name");
-//                        }
-//                    });
-//
-//                    search.setText("Search For a Task Name");
-//                    search.setWidth("12em");
-//                    search.setAccessKey('O');
-//                    search.setTitle("[Access Key: O]");
-//                    search.setFocus(true);
-//
-//                    search.addValueChangeHandler(new ValueChangeHandler<String>() {
-//                        @Override
-//                        public void onValueChange(
-//                                ValueChangeEvent<String> stringValueChangeEvent) {
-//                            taskSvcAsync.searchTasksWithName(
-//                                    stringValueChangeEvent.getValue(),
-//                                    new AsyncCallback<ArrayList<Task>>() {
-//                                        @Override
-//                                        public void onFailure(
-//                                                Throwable caught) {
-//                                        }
-//
-//                                        @Override
-//                                        public void onSuccess(
-//                                                ArrayList<Task> tasks) {
-//                                            displayTasks(tasks);
-//                                            tabPanel.selectTab(1);
-//                                            showAllTasks.setVisible(true);
-//                                        }
-//                                    });
-//                        }
-//                    });
-//
-//                    tabPanel.add(new HTML(), search);
-//                }
             }
         });
     }
@@ -275,24 +140,6 @@ public class TaskMgmt extends Composite {
                 return "Edit";
             }
         };
-        edit.setFieldUpdater(new FieldUpdater<Task, String>() {
-            @Override
-            public void update(int index, final Task object,
-                               String value) {
-                tabPanel.selectTab(3);
-                loadTask(object.getId());
-                taskItem.setHTML("Task " + object.getId());
-                deleteTask.setCommand(new Command() {
-                    @Override
-                    public void execute() {
-                        ArrayList<String> taskIds = new ArrayList<String>();
-                        taskIds.add(object.getId());
-                        deleteTasks(taskIds);
-                        tabPanel.selectTab(1);
-                    }
-                });
-            }
-        });
         taskPager.addColumn(edit);
 
         Column<Task, String> removeButton = new Column<Task, String>(
@@ -317,45 +164,6 @@ public class TaskMgmt extends Composite {
 
     }
 
-    private Task declareTask() {
-        Task task = new Task();
-        task.setName(name.getValue());
-        task.setDescription(description.getValue());
-        task.setCategory(category.getValue());
-        if (priority.getValue().matches("\\d+"))
-            task.setPriority(Integer.parseInt(priority.getValue()));
-
-        return task;
-    }
-
-    private Task declareTaskUpdate() {
-        Task task = new Task();
-        task.setName(nameUpdate.getValue());
-        task.setDescription(descriptionUpdate.getValue());
-        task.setCategory(categoryUpdate.getValue());
-        if (priorityUpdate.getValue().matches("\\d+"))
-            task.setPriority(Integer.parseInt(priorityUpdate.getValue()));
-        task.setId(taskId.getText());
-
-        return task;
-    }
-
-    private void putTask(Task task) {
-        taskSvcAsync.putTask(task, new AsyncCallback<Void>() {
-            @Override
-            public void onFailure(Throwable caught) {
-                Header.displayActionResult(
-                        "Error Creating Task: " + caught.getMessage(), false);
-            }
-
-            @Override
-            public void onSuccess(Void ignore) {
-                Header.displayActionResult("Task Created Successfully", true);
-                getTasks();
-            }
-        });
-    }
-
     private void deleteTasks(List<String> selectedTaskIds) {
         ArrayList<String> tasks = new ArrayList<String>(); // TODO
         // optimize > don't create this redundant object, use the Task IDs only
@@ -373,35 +181,6 @@ public class TaskMgmt extends Composite {
                 getTasks();
             }
         });
-    }
-
-    private void updateTask(Task task) {
-        taskSvcAsync.updateTask(task, new AsyncCallback<Void>() {
-            @Override
-            public void onFailure(Throwable caught) {
-                Header.displayActionResult(
-                        "Error Updating Task: " + caught.getMessage(), false);
-            }
-
-            @Override
-            public void onSuccess(Void ignore) {
-                Header.displayActionResult("Task Updated Successfully", true);
-                getTasks();
-            }
-        });
-    }
-
-    @UiHandler("createTask")
-    void addTask(ClickEvent event) {
-        putTask(declareTask());
-        name.setFocus(true);
-        tabPanel.selectTab(1);
-    }
-
-    @UiHandler("updateTask")
-    void addTaskUpdate(ClickEvent event) {
-        updateTask(declareTaskUpdate());
-        tabPanel.selectTab(1);
     }
 
     @UiHandler("showAllTasks")
