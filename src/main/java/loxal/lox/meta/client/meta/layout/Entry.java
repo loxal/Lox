@@ -21,13 +21,9 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.gwt.user.client.ui.TabLayoutPanel;
 import com.google.gwt.user.client.ui.Widget;
-import loxal.lox.meta.client.meta.authentication.AuthInfo;
-import loxal.lox.meta.client.meta.authentication.AuthInfoSvc;
-import loxal.lox.meta.client.meta.authentication.AuthInfoSvcAsync;
 import loxal.lox.meta.client.tasksolver.TaskMgmt;
 
 public class Entry implements EntryPoint {
@@ -36,14 +32,14 @@ public class Entry implements EntryPoint {
 
     private Binder binder = GWT.create(Binder.class);
     private I18n i18n = GWT.create(I18n.class);
-    private AuthInfoSvcAsync authInfoSvcAsync = GWT.create(AuthInfoSvc.class);
+//    private AuthInfoSvcAsync authInfoSvcAsync = GWT.create(AuthInfoSvc.class);
 
     @UiField
     TaskMgmt taskMgmt;
     //    @UiField
 //    Footer footer;
-    @UiField
-    Header header;
+//    @UiField
+//    Header header;
     @UiField
     TabLayoutPanel taskTab;
 
@@ -53,18 +49,19 @@ public class Entry implements EntryPoint {
         RootLayoutPanel.get().add(app);
         Window.setTitle(i18n.appTitle());
 
-        authInfoSvcAsync.getAuthInfo(GWT.getHostPageBaseURL(),
-                new AsyncCallback<AuthInfo>() {
-                    @Override
-                    public void onFailure(Throwable caught) {
-                    }
-
-                    @Override
-                    public void onSuccess(AuthInfo authInfo) {
-                        header.setAuthenticationInfo(authInfo);
-                        header.authentication();
-                        taskTab.selectTab(0);
-                    }
-                });
+//        authInfoSvcAsync.getAuthInfo(GWT.getHostPageBaseURL(),
+//                new AsyncCallback<AuthInfo>() {
+//                    @Override
+//                    public void onFailure(Throwable caught) {
+//                    }
+//
+//                    @Override
+//                    public void onSuccess(AuthInfo authInfo) {
+//                        header.setAuthenticationInfo(authInfo);
+//                        header.authentication();
+//                        taskTab.selectTab(0);
+//                    }
+//                }
+//        );
     }
 }
