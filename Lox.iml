@@ -65,6 +65,7 @@
     <orderEntry type="library" name="Maven: com.google.api:tasks:v1-0.2.alpha" level="project" />
     <orderEntry type="library" name="Maven: com.google.api:urlshortener:v1-0.2.alpha" level="project" />
     <orderEntry type="library" name="Maven: com.google.api:plus:v1-0.2.alpha" level="project" />
+    <orderEntry type="library" name="Maven: com.google.api:calendar:v3-0.2.alpha" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.eclipse.persistence:javax.persistence:2.0.3" level="project" />
     <orderEntry type="library" name="Maven: com.google.appengine:appengine-api-1.0-sdk:1.6.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.google.appengine:appengine-testing:1.6.1" level="project" />
