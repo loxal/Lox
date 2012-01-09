@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package loxal.lox.meta.client.meta.shared;
 
 import com.google.api.gwt.services.plus.shared.Plus;
@@ -34,11 +35,8 @@ import com.google.web.bindery.requestfactory.shared.ServerFailure;
  */
 public abstract class PlusBase {
     protected static final String CLIENT_ID = "977773778701.apps.googleusercontent.com";
-    //      protected static final String CLIENT_ID = "692753340433.apps.googleusercontent.com";
     private static final String API_KEY = "AIzaSyAzv_fmFnfB57i9PwQyrbLORPxEOTYRHo4";
-    //      private static final String API_KEY = "AIzaSyA5bNyuRQFaTQle_YC5BUH7tQzRmAPiqsM";
     private static final String APPLICATION_NAME = "best";
-//  private static final String APPLICATION_NAME = "PlusSample/1.0";
 
     public void login(OAuth2Login loginImpl, final GoogleApiRequestTransport transportImpl) {
         loginImpl.withScopes(PlusAuthScope.PLUS_ME).login(new Receiver<String>() {
@@ -71,9 +69,7 @@ public abstract class PlusBase {
     }
 
     public void getMe(final Plus plus) {
-        println("test: " + plus.people().toString());
-
-        plus.people().get("102299455092306269473").to(new Receiver<Person>() {
+        plus.people().get("me").to(new Receiver<Person>() {
             @Override
             public void onSuccess(Person person) {
                 println("Hello " + person.getDisplayName());
@@ -87,19 +83,6 @@ public abstract class PlusBase {
                 println(error.getStackTraceString());
             }
         }).fire();
-
-        plus.people().get("me").to(new Receiver<Person>() {
-            @Override
-            public void onSuccess(Person response) {
-                println("blub" + response.getDisplayName());
-            }
-
-            @Override
-            public void onFailure(ServerFailure error) {
-                println("boom: " + error.getMessage());
-                println(error.getStackTraceString());
-            }
-        });
     }
 
     public void getMyActivities(Plus plus) {
@@ -118,7 +101,7 @@ public abstract class PlusBase {
 
             @Override
             public void onFailure(ServerFailure error) {
-                System.out.println("error222223 = " + error);
+                println("error222223 = " + error);
             }
         }).fire();
     }

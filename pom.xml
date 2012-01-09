@@ -57,7 +57,7 @@
             <version>v1-0.2.alpha</version>
             <!--<scope>runtime</scope>-->
             <scope>system</scope>
-            <systemPath>${user.home}/my/sdk/gwt-google-apis/gwt-tasks-v1-0.2-alpha.jar</systemPath>
+            <systemPath>${user.home}/my/project/Lox/lib/gwt-google-apis/gwt-tasks-v1-0.2-alpha.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.google.api</groupId>
@@ -65,7 +65,7 @@
             <version>v1-0.2.alpha</version>
             <!--<scope>runtime</scope>-->
             <scope>system</scope>
-            <systemPath>${user.home}/my/sdk/gwt-google-apis/gwt-urlshortener-v1-0.2-alpha.jar</systemPath>
+            <systemPath>${user.home}/my/project/Lox/lib/gwt-google-apis/gwt-urlshortener-v1-0.2-alpha.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.google.api</groupId>
@@ -73,7 +73,7 @@
             <version>v1-0.2.alpha</version>
             <!--<scope>runtime</scope>-->
             <scope>system</scope>
-            <systemPath>${user.home}/my/sdk/gwt-google-apis/gwt-plus-v1-0.2-alpha.jar</systemPath>
+            <systemPath>${user.home}/my/project/Lox/lib/gwt-google-apis/gwt-plus-v1-0.2-alpha.jar</systemPath>
         </dependency>
         <!--<dependency>-->
         <!--<groupId>com.google.web.bindery</groupId>-->
