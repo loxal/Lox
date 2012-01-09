@@ -1,7 +1,17 @@
 /*
- * Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
- * Use of this source code is governed by a BSD-style
- * license that can be found in the LICENSE file.
+ * Copyright 2012 Alexander Orlov <alexander.orlov@loxal.net>
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 package loxal.lox.meta.client.tasksolver;
@@ -9,11 +19,9 @@ package loxal.lox.meta.client.tasksolver;
 import com.google.gwt.cell.client.ButtonCell;
 import com.google.gwt.cell.client.FieldUpdater;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.*;
+import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.logical.shared.SelectionEvent;
 import com.google.gwt.event.logical.shared.SelectionHandler;
-import com.google.gwt.event.logical.shared.ValueChangeEvent;
-import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
@@ -143,61 +151,61 @@ public class TaskMgmt extends Composite {
             public void onSuccess(ArrayList<Task> tasks) {
                 displayTasks(tasks);
 
-                { // SuggestBox / Oracle
-                    MultiWordSuggestOracle oracle = new MultiWordSuggestOracle();
-                    for (Task task : tasks) {
-                        oracle.add(task.getName());
-                    }
-
-                    tabPanel.remove(3);
-                    TextBox searchBox = new TextBox();
-                    final SuggestBox search = new SuggestBox(oracle, searchBox); // UiBinder variant didn't work; also using the PROVIDED attribute
-
-                    searchBox.addFocusHandler(new FocusHandler() {
-                        @Override
-                        public void onFocus(FocusEvent focusEvent) {
-                            search.setText("");
-                        }
-                    });
-
-                    searchBox.addBlurHandler(new BlurHandler() {
-                        @Override
-                        public void onBlur(BlurEvent blurEvent) {
-                            search.setText("Search For a Task Name");
-                        }
-                    });
-
-                    search.setText("Search For a Task Name");
-                    search.setWidth("12em");
-                    search.setAccessKey('O');
-                    search.setTitle("[Access Key: O]");
-                    search.setFocus(true);
-
-                    search.addValueChangeHandler(new ValueChangeHandler<String>() {
-                        @Override
-                        public void onValueChange(
-                                ValueChangeEvent<String> stringValueChangeEvent) {
-                            taskSvcAsync.searchTasksWithName(
-                                    stringValueChangeEvent.getValue(),
-                                    new AsyncCallback<ArrayList<Task>>() {
-                                        @Override
-                                        public void onFailure(
-                                                Throwable caught) {
-                                        }
-
-                                        @Override
-                                        public void onSuccess(
-                                                ArrayList<Task> tasks) {
-                                            displayTasks(tasks);
-                                            tabPanel.selectTab(1);
-                                            showAllTasks.setVisible(true);
-                                        }
-                                    });
-                        }
-                    });
-
-                    tabPanel.add(new HTML(), search);
-                }
+//                { // SuggestBox / Oracle
+//                    MultiWordSuggestOracle oracle = new MultiWordSuggestOracle();
+//                    for (Task task : tasks) {
+//                        oracle.add(task.getName());
+//                    }
+//
+//                    tabPanel.remove(3);
+//                    TextBox searchBox = new TextBox();
+//                    final SuggestBox search = new SuggestBox(oracle, searchBox); // UiBinder variant didn't work; also using the PROVIDED attribute
+//
+//                    searchBox.addFocusHandler(new FocusHandler() {
+//                        @Override
+//                        public void onFocus(FocusEvent focusEvent) {
+//                            search.setText("");
+//                        }
+//                    });
+//
+//                    searchBox.addBlurHandler(new BlurHandler() {
+//                        @Override
+//                        public void onBlur(BlurEvent blurEvent) {
+//                            search.setText("Search For a Task Name");
+//                        }
+//                    });
+//
+//                    search.setText("Search For a Task Name");
+//                    search.setWidth("12em");
+//                    search.setAccessKey('O');
+//                    search.setTitle("[Access Key: O]");
+//                    search.setFocus(true);
+//
+//                    search.addValueChangeHandler(new ValueChangeHandler<String>() {
+//                        @Override
+//                        public void onValueChange(
+//                                ValueChangeEvent<String> stringValueChangeEvent) {
+//                            taskSvcAsync.searchTasksWithName(
+//                                    stringValueChangeEvent.getValue(),
+//                                    new AsyncCallback<ArrayList<Task>>() {
+//                                        @Override
+//                                        public void onFailure(
+//                                                Throwable caught) {
+//                                        }
+//
+//                                        @Override
+//                                        public void onSuccess(
+//                                                ArrayList<Task> tasks) {
+//                                            displayTasks(tasks);
+//                                            tabPanel.selectTab(1);
+//                                            showAllTasks.setVisible(true);
+//                                        }
+//                                    });
+//                        }
+//                    });
+//
+//                    tabPanel.add(new HTML(), search);
+//                }
             }
         });
     }

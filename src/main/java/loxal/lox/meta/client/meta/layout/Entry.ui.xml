@@ -29,15 +29,15 @@
         <!--</g:north>-->
 
         <g:center>
-            <g:TabLayoutPanel barHeight="30" ui:field="taskTab">
-                <!--<g:TabLayoutPanel barHeight="25" ui:field="taskTab">-->
-                <g:tab>
-                    <g:header>
-                        <ui:msg>Task Management</ui:msg>
-                    </g:header>
-                    <task.tasksolver:TaskMgmt ui:field="taskMgmt"/>
-                </g:tab>
-            </g:TabLayoutPanel>
+            <!--<g:TabLayoutPanel barHeight="30" ui:field="taskTab">-->
+            <!--&lt;!&ndash;<g:TabLayoutPanel barHeight="25" ui:field="taskTab">&ndash;&gt;-->
+            <!--<g:tab>-->
+            <!--<g:header>-->
+            <!--<ui:msg>Task Management</ui:msg>-->
+            <!--</g:header>-->
+            <task.tasksolver:TaskMgmt ui:field="taskMgmt"/>
+            <!--</g:tab>-->
+            <!--</g:TabLayoutPanel>-->
         </g:center>
 
         <!--<g:south size="2">-->
