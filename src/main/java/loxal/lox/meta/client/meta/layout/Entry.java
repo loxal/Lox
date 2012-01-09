@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 Alexander Orlov <alexander.orlov@loxal.net>
+ * Copyright 2012 Alexander Orlov <alexander.orlov@loxal.net>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,8 +40,8 @@ public class Entry implements EntryPoint {
 
     @UiField
     TaskMgmt taskMgmt;
-    @UiField
-    Footer footer;
+    //    @UiField
+//    Footer footer;
     @UiField
     Header header;
     @UiField

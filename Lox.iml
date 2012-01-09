@@ -16,7 +16,7 @@
       </configuration>
       <facet type="google-app-engine" name="Google App Engine">
         <configuration>
-          <password>dfc7dfc1df98dfc9dfccdf9ddfc8dfe8df99dff9dfe0df9f</password>
+          <password>dfc0dfc5dfdedfc1dfd3dfc2dfc6dfd2dfcddfdadfc1dfdddfd0dfc2dfdedfce</password>
           <files-to-enhance>
             <file path="$MODULE_DIR$/src/main/java/com/google/appengine/demos/helloorm/Flight.java" />
           </files-to-enhance>
