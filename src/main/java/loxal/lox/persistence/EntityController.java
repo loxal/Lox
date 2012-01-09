@@ -81,9 +81,15 @@ public class EntityController {
 //                final CriteriaQuery<?> cq = cb.createQuery(cls);
 //                final TypedQuery<?> q = em.createQuery(cq);
 //                final List<?> entities = q.getResultList();
+
+            final Flight flight = new Flight("origin", "destination");
+            final Flight flight1 = new Flight("origin", "destination");
+            create(flight);
+            create(flight1);
+
             final String DEFAULT_QUERY = "SELECT f FROM Flight f";
 //            final String DEFAULT_QUERY = "select f from " + Flight.class.getName() + " as f";
-            List<Flight> entities = em.createQuery(DEFAULT_QUERY, Flight.class).getResultList();
+            List<Flight> entities = em.createQuery(DEFAULT_QUERY).getResultList();
 //                List<Flight> entities = em.createQuery("select f from Flight f").getResultList();
 //                tx.commit();
             System.out.println("entitiesSIZE = " + entities.size());
