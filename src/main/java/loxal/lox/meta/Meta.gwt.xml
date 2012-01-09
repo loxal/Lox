@@ -26,14 +26,14 @@
     <inherits name="com.google.gwt.user.User"/>
     <inherits name="com.google.gwt.uibinder.UiBinder"/>
     <inherits name="com.google.web.bindery.requestfactory.RequestFactory"/>
-
-    <inherits name="com.google.gwt.i18n.I18N"/>
-    <extend-property name="locale" values="de"/>
-    <extend-property name="locale" values="ru"/>
-    <extend-property name="locale" values="zh"/>
+    <!--<inherits name="com.google.api.gwt.services.Tasks"/>-->
 
     <inherits name="com.google.gwt.user.theme.clean.Clean"/>
-    <inherits name="com.google.api.gwt.services.Tasks"/>
+
+    <!--<inherits name="com.google.gwt.i18n.I18N"/>-->
+    <!--<extend-property name="locale" values="de"/>-->
+    <!--<extend-property name="locale" values="ru"/>-->
+    <!--<extend-property name="locale" values="zh"/>-->
 
     <entry-point class="loxal.lox.meta.client.meta.layout.Entry"/>
     <set-configuration-property name="UiBinder.useSafeHtmlTemplates" value="true"/>

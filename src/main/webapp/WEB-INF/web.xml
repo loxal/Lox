@@ -32,16 +32,6 @@
         <servlet-class>loxal.lox.meta.server.AuthInfoSvcImpl</servlet-class>
     </servlet>
 
-    <servlet>
-        <servlet-name>TaskSvcImpl</servlet-name>
-        <servlet-class>loxal.lox.meta.server.TaskSvcImpl</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>TaskSvcImpl</servlet-name>
-        <url-pattern>/loxal.lox.meta.Meta/Task</url-pattern>
-    </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>AuthInfoSvcImpl</servlet-name>
         <url-pattern>/loxal.lox.meta.Meta/AuthInfo</url-pattern>

@@ -19,26 +19,20 @@ package loxal.lox.meta.client.meta.layout;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
-import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.gwt.user.client.ui.Widget;
-import loxal.lox.meta.client.tasksolver.TaskMgmt;
 
 public class Entry implements EntryPoint {
     interface Binder extends UiBinder<Widget, Entry> {
     }
 
     private Binder binder = GWT.create(Binder.class);
-    private I18n i18n = GWT.create(I18n.class);
-
-    @UiField
-    TaskMgmt taskMgmt;
 
     @Override
     public void onModuleLoad() {
         Widget app = binder.createAndBindUi(this);
+        Window.setTitle("TEST");
         RootLayoutPanel.get().add(app);
-        Window.setTitle(i18n.appTitle());
     }
 }

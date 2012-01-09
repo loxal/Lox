@@ -18,14 +18,15 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
              xmlns:g="urn:import:com.google.gwt.user.client.ui"
-             xmlns:task.tasksolver="urn:import:loxal.lox.meta.client.tasksolver"
              ui:generateFormat="com.google.gwt.i18n.rebind.format.PropertiesFormat"
              ui:generateKeys="com.google.gwt.i18n.server.keygen.MD5KeyGenerator"
              ui:generateLocales="default">
 
     <g:DockLayoutPanel unit="EM">
         <g:center>
-            <task.tasksolver:TaskMgmt ui:field="taskMgmt"/>
+            <g:VerticalPanel>
+                <g:Button>TEST</g:Button>
+            </g:VerticalPanel>
         </g:center>
     </g:DockLayoutPanel>
 </ui:UiBinder>
