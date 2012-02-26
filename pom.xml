@@ -31,7 +31,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <gae.app.name>lox1-loxal</gae.app.name>
-        <gae.ver>1.6.1</gae.ver>
+        <gae.ver>1.6.2</gae.ver>
         <gae.runtime.ver>${gae.ver}</gae.runtime.ver>
         <gae.maven.ver>0.9.2</gae.maven.ver>
         <gae.home>${user.home}/my/sdk/gae.java</gae.home>
@@ -270,16 +270,16 @@
         <!--necessary for gwt-maven-plugin-->
         <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
         <plugins>
-            <!--<plugin>-->
-            <!--<groupId>org.apache.maven.plugins</groupId>-->
-            <!--<artifactId>maven-compiler-plugin</artifactId>-->
-            <!--<version>2.3.2</version>-->
-            <!--<configuration>-->
-            <!--<source>1.6</source>-->
-            <!--<target>1.6</target>-->
-            <!--<optimize>true</optimize>-->
-            <!--</configuration>-->
-            <!--</plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <optimize>true</optimize>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>net.kindleit</groupId>
                 <artifactId>maven-gae-plugin</artifactId>
